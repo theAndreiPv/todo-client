@@ -10,17 +10,18 @@ export default {
   props: {
     name: {
       type: String,
-      required: true
+      required: true,
     },
   },
   computed: {
     iconPath() {
+      // eslint-disable-next-line global-require, import/no-dynamic-require
       let icon = require(`@/assets/icons/${this.name}.svg`);
       if (Object.prototype.hasOwnProperty.call(icon, 'default')) {
         icon = icon.default;
       }
       return icon.url;
     },
-  }
+  },
 };
 </script>
