@@ -1,7 +1,6 @@
-<template>
-  <svg xmlns="http://www.w3.org/2000/svg" class='fill-current'>
-    <use :xlink:href="iconPath" xmlns:xlink="http://www.w3.org/1999/xlink"/>
-  </svg>
+<template lang='pug'>
+  svg(xmlns='http://www.w3.org/2000/svg' class='fill-current')
+    use(:xlink:href='iconPath' xmlns:xlink='http://www.w3.org/1999/xlink')
 </template>
 
 <script>

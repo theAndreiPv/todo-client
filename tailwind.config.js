@@ -6,8 +6,8 @@ module.exports = {
     },
     colors: {
       transparent: 'transparent',
-      // black: '#333',
-      white: '#fff',
+      'black-8': 'rgba(0,0,0,.85)',
+      'black-1': 'rgba(0,0,0,.12)',
       'white-8': 'rgba(255, 255, 255, 0.85)',
       'white-5': 'rgba(255, 255, 255, 0.55)',
       'white-4': 'rgba(255, 255, 255, 0.4)',
@@ -34,6 +34,7 @@ module.exports = {
       6: '1.5rem',
       7: '1.75rem',
       8: '2rem',
+      9: '2.25rem',
       10: '2.5rem',
       12: '3rem',
       16: '4rem',
