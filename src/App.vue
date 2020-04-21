@@ -1,4 +1,4 @@
 <template lang='pug'>
-#app(class='text-5 text-black-8')
+#app(class='text-5 text-black-80')
   router-view
 </template>

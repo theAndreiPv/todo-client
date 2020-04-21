@@ -6,14 +6,23 @@ module.exports = {
     },
     colors: {
       transparent: 'transparent',
-      'black-8': 'rgba(0,0,0,.85)',
-      'black-3': 'rgba(0,0,0,.36)',
-      'black-1': 'rgba(0,0,0,.12)',
-      'white-8': 'rgba(255,255,255,.85)',
-      'white-5': 'rgba(255,255,255,.55)',
-      'white-4': 'rgba(255,255,255,.4)',
-      dim: 'rgba(46,73,136,.08)',
-      theme: '#667fdd',
+      black: {
+        10: 'rgba(0, 0, 0, .12)',
+        20: 'rgba(0, 0, 0, .24)',
+        30: 'rgba(0,0,0,.36)',
+        80: 'rgba(0,0,0,.85)',
+      },
+      white: {
+        40: 'rgba(255,255,255,.4)',
+        50: 'rgba(255,255,255,.55)',
+        80: 'rgba(255,255,255,.85)',
+      },
+      theme: {
+        6: 'rgba(102,131,222,.06)',
+        8: 'rgba(46,73,136,.08)',
+        10: 'rgba(102,131,222,.12)',
+        default: '#667fdd',
+      },
     },
     backgroundColor: (theme) => theme('colors'),
     borderColor: (theme) => ({
@@ -81,10 +90,14 @@ module.exports = {
     },
     borderWidth: {
       default: '1px',
+      0: '0',
     },
     boxShadow: {
       default: '0 2px 11px 0 rgba(0, 0, 0, .16)',
       lg: '0 2px 6px rgba(0,0,0,.16), 0 3px 20px rgba(0,0,0,.16)',
     },
+  },
+  variants: {
+    borderColor: ['responsive', 'hover', 'focus', 'group-hover'],
   },
 };
