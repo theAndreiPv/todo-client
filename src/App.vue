@@ -1,4 +1,4 @@
 <template lang='pug'>
-#app
+#app(class='text-5')
   router-view
 </template>

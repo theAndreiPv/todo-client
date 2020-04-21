@@ -1,5 +1,5 @@
 <template lang='pug'>
-div.flex.h-screen
+div(class='flex h-screen')
   TheNavDrawer
   main(class='flex-grow')
   aside(class='w-4/12 border-l')
