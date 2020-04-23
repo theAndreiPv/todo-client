@@ -10,6 +10,7 @@ module.exports = {
         10: 'rgba(0, 0, 0, .12)',
         20: 'rgba(0, 0, 0, .24)',
         30: 'rgba(0,0,0,.36)',
+        50: 'rgba(0,0,0,.54)',
         80: 'rgba(0,0,0,.85)',
       },
       white: {
@@ -71,6 +72,10 @@ module.exports = {
       10: '1.5rem', // 24px
       11: '1.625rem', // 26px
       12: '1.75rem', // 28px
+    },
+    lineHeight: {
+      normal: '1.5',
+      6: '1.5rem', // 24px
     },
     fontFamily: {
       sans: [

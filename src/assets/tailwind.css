@@ -1,5 +1,9 @@
 @tailwind base;
 
+input, textarea {
+  @apply outline-none;
+}
+
 @tailwind components;
 
 @tailwind utilities;

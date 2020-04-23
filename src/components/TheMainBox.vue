@@ -4,7 +4,7 @@ main(class='flex-grow px-4')
     div(class='flex items-center h-18')
       h1(class='text-9') Все
     input(
-      class='block w-full h-10 px-3 border border-transparent rounded outline-none placeholder-black-30 bg-theme-8 focus:border-accent'
+      class='block w-full h-10 px-3 border border-transparent rounded placeholder-black-30 bg-theme-8 focus:border-accent'
       placeholder='Добавьте задачу, нажмите Enter для сохранения.'
       spellcheck='false'
     )
