@@ -37,6 +37,7 @@ module.exports = {
     },
     spacing: {
       px: '1px',
+      '2px': '2px',
       0: '0',
       1: '0.25rem',
       2: '0.5rem',
@@ -100,6 +101,15 @@ module.exports = {
     boxShadow: {
       default: '0 2px 11px 0 rgba(0, 0, 0, .16)',
       lg: '0 2px 6px rgba(0,0,0,.16), 0 3px 20px rgba(0,0,0,.16)',
+    },
+    transitionDuration: {
+      300: '300ms',
+    },
+    transitionProperty: {
+      none: 'none',
+      all: 'all',
+      opacity: 'opacity',
+      background: 'background-color',
     },
   },
   variants: {
