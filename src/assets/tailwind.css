@@ -1,7 +1,11 @@
 @tailwind base;
 
-input, textarea {
+input, textarea, button:focus {
   @apply outline-none;
+}
+
+input, textarea {
+  @apply bg-transparent;
 }
 
 @tailwind components;

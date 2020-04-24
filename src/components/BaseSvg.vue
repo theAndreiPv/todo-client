@@ -5,7 +5,7 @@
 
 <script>
 export default {
-  name: 'BaseIcon',
+  name: 'BaseSvg',
   props: {
     name: {
       type: String,

@@ -5,7 +5,7 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 import './assets/tailwind.css';
-import BaseIcon from './components/BaseIcon.vue';
+import BaseSvg from './components/BaseSvg.vue';
 import ContainerScroll from './components/ContainerScroll.vue';
 
 Vue.config.productionTip = false;
@@ -13,7 +13,7 @@ Vue.config.productionTip = false;
 Vue.use(TextareaAutosize);
 Vue.use(Vuebar);
 
-Vue.component(BaseIcon.name, BaseIcon);
+Vue.component(BaseSvg.name, BaseSvg);
 Vue.component(ContainerScroll.name, ContainerScroll);
 
 new Vue({
