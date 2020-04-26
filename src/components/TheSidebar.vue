@@ -1,6 +1,11 @@
 <template lang="pug">
-aside(class='flex flex-col w-4/12 border-l')
+aside(
+  class='right-0 flex flex-col w-4/12 h-full bg-white border-l sm:absolute sm:shadow-lg sm:w-2/3'
+  :class='classContainer'
+  v-click-outside='hideOnMobile')
   header(class='flex items-center flex-shrink-0 px-6 border-b h-18')
+    button(class='hidden p-2 mr-3 -ml-2 sm:block' @click='$store.commit("hideMobileSidebar")')
+      BaseSvg(name='arrow' class='w-5 h-5 text-black-30')
     TaskCheckbox(completed)
   ContainerScroll(class='flex-grow')
     div(class='px-6 py-4')
@@ -18,6 +23,16 @@ export default {
   name: 'TheSidebar',
   components: {
     TaskCheckbox,
+  },
+  computed: {
+    classContainer() {
+      return { 'sm:hidden': !this.$store.getters.displaySidebar };
+    },
+  },
+  methods: {
+    hideOnMobile() {
+      this.$store.commit('hideMobileSidebar');
+    },
   },
 };
 </script>

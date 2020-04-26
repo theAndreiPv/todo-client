@@ -1,8 +1,8 @@
 module.exports = {
   theme: {
     screens: {
-      lg: '920px',
-      xl: '1200px',
+      lg: { max: '1020px' },
+      sm: { max: '920px' },
     },
     colors: {
       transparent: 'transparent',
@@ -17,6 +17,7 @@ module.exports = {
         40: 'rgba(255,255,255,.4)',
         50: 'rgba(255,255,255,.55)',
         80: 'rgba(255,255,255,.85)',
+        default: '#fff',
       },
       theme: {
         6: 'rgba(102,131,222,.06)',

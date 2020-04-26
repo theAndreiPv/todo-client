@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import vClickOutside from 'v-click-outside';
 import TextareaAutosize from 'vue-textarea-autosize';
 import Vuebar from 'vuebar';
 import App from './App.vue';
@@ -10,6 +11,7 @@ import ContainerScroll from './components/ContainerScroll.vue';
 
 Vue.config.productionTip = false;
 
+Vue.use(vClickOutside);
 Vue.use(TextareaAutosize);
 Vue.use(Vuebar);
 

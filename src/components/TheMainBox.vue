@@ -2,6 +2,8 @@
 main(class='flex flex-col flex-grow')
   header(class='mb-5 px-7')
     div(class='flex items-center h-18')
+      button(class='hidden p-4 -ml-4 lg:block openButton' @click.stop='$store.commit("toggleDisplayMobileNavbar")')
+        BaseSvg(name='bars' class='w-4 h-4 text-black-30')
       h1(class='text-9') Все
     input(
       class='block w-full h-10 px-3 border border-transparent rounded placeholder-black-30 bg-theme-8 focus:border-accent'
@@ -10,24 +12,7 @@ main(class='flex flex-col flex-grow')
     )
   ContainerScroll(class='flex-grow')
     div(class='px-4')
-      BaseTask(title='Обучение веб 6h' to='#1')
-      BaseTask(title='Тренировка' to='#2')
-      BaseTask(title='Купить еды' to='#3' completed)
-      BaseTask(title='Обучение веб 6h' to='#1' selected)
-      BaseTask(title='Тренировка' to='#2')
-      BaseTask(title='Купить еды' to='#3' completed)
-      BaseTask(title='Обучение веб 6h' to='#1')
-      BaseTask(title='Тренировка' to='#2')
-      BaseTask(title='Купить еды' to='#3' completed)
-      BaseTask(title='Обучение веб 6h' to='#1')
-      BaseTask(title='Тренировка' to='#2')
-      BaseTask(title='Купить еды' to='#3' completed)
-      BaseTask(title='Обучение веб 6h' to='#1')
-      BaseTask(title='Тренировка' to='#2')
-      BaseTask(title='Купить еды' to='#3' completed)
-      BaseTask(title='Обучение веб 6h' to='#1')
-      BaseTask(title='Тренировка' to='#2')
-      BaseTask(title='Купить еды' to='#3' completed)
+      BaseTask(title='Обучение веб 6h' to='#1' @click.native.stop='$store.commit("showMobileSidebar")')
 </template>
 
 <script>
