@@ -1,7 +1,6 @@
 import Vue from 'vue';
 import vClickOutside from 'v-click-outside';
-import TextareaAutosize from 'vue-textarea-autosize';
-import Vuebar from 'vuebar';
+import autosize from 'v-autosize/dist/plugin';
 import App from './App.vue';
 import router from './router';
 import store from './store';
@@ -12,11 +11,11 @@ import ContainerScroll from './components/ContainerScroll.vue';
 Vue.config.productionTip = false;
 
 Vue.use(vClickOutside);
-Vue.use(TextareaAutosize);
-Vue.use(Vuebar);
+Vue.use(autosize);
 
-Vue.component(BaseSvg.name, BaseSvg);
-Vue.component(ContainerScroll.name, ContainerScroll);
+
+Vue.component('BaseSvg', BaseSvg);
+Vue.component('ContainerScroll', ContainerScroll);
 
 new Vue({
   router,

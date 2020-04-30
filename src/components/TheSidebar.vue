@@ -9,16 +9,8 @@ aside(
     TaskCheckbox(completed)
   ContainerScroll(class='flex-grow')
     div(class='px-6 py-4')
-      TextareaAutosize(
-        :key='classContainer'
-        rows='1'
-        class='block w-full mb-4 font-bold text-6'
-        value='Обучение веб 6h')
-      TextareaAutosize(
-        :key='classContainer'
-        rows='1'
-        class='block w-full leading-6 placeholder-black-30'
-        placeholder='Description' value='')
+      textarea(v-autosize rows='1' class='block w-full mb-4 font-bold resize-none text-6') ОбученВид уголка различается, но его функции остаются одинаковыми, если щёлкнуть мышью и потянуть за уголок, то можно изменить размеры поля. Чтобы запретить эту возможность, следует для селектора textarea задать свойство resize со значением none (пример 1).Вид уголка различается, но его ф
+      textarea(v-autosize rows='1' class='block w-full leading-6 resize-none placeholder-black-30' placeholder='Description') ОбученВид уголка различается, но его функции остаются одинаковыми, если щёлкнуть мышью и потянуть за уголок, то можно изменить размеры поля. Чтобы запретить эту возможность, следует для селектора textarea задать свойство resize со значением none (пример 1).Вид уголка различается, но его ф ОбученВид уголка различается, но его функции остаются одинаковыми, если щёлкнуть мышью и потянуть за уголок, то можно изменить размеры поля. Чтобы запретить эту возможность, следует для селектора textarea задать свойство resize со значением none (пример 1).Вид уголка различается, но его ф ОбученВид уголка различается, но его функции остаются одинаковыми, если щёлкнуть мышью и потянуть за уголок, то можно изменить размеры поля. Чтобы запретить эту возможность, следует для селектора textarea задать свойство resize со значением none (пример 1).Вид уголка различается, но его ф
   footer(class='flex items-center flex-shrink-0 h-12 px-6 border-t')
     button
       BaseSvg(name='delete' class='w-6 h-6 text-black-30 hover:text-black-50')

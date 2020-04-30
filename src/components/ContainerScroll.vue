@@ -1,25 +1,28 @@
 <template lang="pug">
-  component(:is='tag' v-bar)
+  VueScroll(:ops='options')
     slot
 </template>
 
 <script>
+import VueScroll from 'vuescroll/dist/vuescroll-native';
+
 export default {
   name: 'ContainerScroll',
-  props: {
-    tag: {
-      type: String,
-      default: 'div',
-    },
+  components: {
+    VueScroll,
   },
+  data: () => ({
+    options: {
+      vuescroll: {
+        wheelScrollDuration: 200,
+      },
+      bar: {
+        onlyShowBarOnScroll: false,
+        background: 'black',
+        opacity: 0.3,
+        size: '0.25rem',
+      },
+    },
+  }),
 };
 </script>
-
-<style lang='sass'>
-.vb-dragger
-  @apply right-0 pl-1
-.vb-dragger-styler
-  @apply w-1 mr-2px rounded-full h-full transition-background duration-300 ease-linear
-.vb-visible:hover .vb-dragger-styler
-  @apply bg-black-30
-</style>
