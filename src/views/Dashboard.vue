@@ -1,5 +1,5 @@
 <template lang='pug'>
-div(class='flex h-screen')
+div(class='absolute inset-0 flex')
   TheNavbar
   TheMainBox
   TheSidebar
