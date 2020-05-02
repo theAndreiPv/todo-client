@@ -8,6 +8,10 @@ input, textarea {
   @apply bg-transparent;
 }
 
+html, body {
+  @apply h-full;
+}
+
 @tailwind components;
 
 @tailwind utilities;

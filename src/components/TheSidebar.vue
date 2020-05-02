@@ -1,6 +1,6 @@
 <template lang="pug">
 aside(
-  class='right-0 flex flex-col w-4/12 h-full bg-white border-l sm:absolute sm:shadow-lg sm:w-2/3'
+  class='right-0 flex flex-col w-4/12 bg-white border-l sm:h-full sm:absolute sm:shadow-lg sm:w-2/3'
   :class='classContainer'
   v-click-outside='hideOnMobile')
   header(class='flex items-center flex-shrink-0 px-6 border-b h-18')
