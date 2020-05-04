@@ -8,6 +8,10 @@ input, textarea {
   @apply bg-transparent;
 }
 
+input {
+  @apply min-w-0;
+}
+
 html, body {
   @apply h-full;
 }

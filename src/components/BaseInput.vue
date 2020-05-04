@@ -1,7 +1,7 @@
 <template lang="pug">
 div
   div(class='flex items-center')
-    BaseSvg(v-if='icon' :name='icon' class='w-6 h-6' :class='onFocus ? "text-theme" : "text-black-20"')
+    BaseSvg(v-if='icon' :name='icon' class='flex-shrink-0 w-6 h-6' :class='onFocus ? "text-theme" : "text-black-20"')
     input(
       :type='type'
       :placeholder='placeholder'
@@ -10,7 +10,8 @@ div
       @focus='toggleFocus'
       @blur='toggleFocus')
   div(class='border-t')
-    hr(class='mx-auto -mt-px duration-300 border-theme transition-width' :class='onFocus ? "w-full" : "w-0"')
+    hr(class='mx-auto -mt-px duration-300 border-t border-theme' :class='onFocus ? "w-full" : "w-0"')
+  div(class='mt-1 text-right duration-300 min-h-5 text-error text-4' :class='onFocus ? "opacity-0" : "opacity-100"') {{textError}}
 </template>
 
 <script>
@@ -26,6 +27,10 @@ export default {
       default: 'text',
     },
     placeholder: {
+      type: String,
+      default: null,
+    },
+    textError: {
       type: String,
       default: null,
     },

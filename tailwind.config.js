@@ -1,5 +1,3 @@
-const plugin = require('tailwindcss/plugin');
-
 module.exports = {
   theme: {
     screens: {
@@ -9,6 +7,7 @@ module.exports = {
     colors: {
       transparent: 'transparent',
       dim: 'rgb(253,253,253)',
+      error: '#ff3180',
       black: {
         10: 'rgba(0, 0, 0, .12)',
         20: 'rgba(0, 0, 0, .24)',
@@ -27,7 +26,7 @@ module.exports = {
         8: 'rgba(46,73,136,.08)',
         10: 'rgba(102,131,222,.12)',
         default: '#667fdd',
-        hover: '#476ad8',
+        accent: '#476ad8',
       },
     },
     backgroundColor: (theme) => theme('colors'),
@@ -68,6 +67,12 @@ module.exports = {
     maxWidth: {
       100: '25rem',
     },
+    minHeight: (theme) => ({
+      0: '0',
+      full: '100%',
+      screen: '100vh',
+      ...theme('spacing'),
+    }),
     fontSize: {
       1: '0.625rem', // 10px
       2: '0.687rem', // 11px
@@ -124,7 +129,6 @@ module.exports = {
       all: 'all',
       opacity: 'opacity',
       background: 'background-color',
-      width: 'width',
     },
     transitionTimingFunction: {
       linear: 'linear',
