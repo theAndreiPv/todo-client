@@ -18,7 +18,7 @@ const routes = [
     children: [
       {
         path: ':task_id',
-        component: () => import('../views/Registr.vue'),
+        component: () => import('../views/Registration.vue'),
         props: true,
       },
       // {
@@ -28,12 +28,12 @@ const routes = [
     ],
   },
   {
-    path: '/login',
+    path: '/Login',
     component: () => import('../views/Login.vue'),
   },
   {
-    path: '/registr',
-    component: () => import('../views/Registr.vue'),
+    path: '/Registration',
+    component: () => import('../views/Registration.vue'),
   },
   {
     path: '*',
