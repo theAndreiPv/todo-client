@@ -7,6 +7,8 @@ div
       :placeholder='placeholder'
       class='flex-grow h-9 placeholder-black-20 font-secondary text-6'
       :class='{"px-3": icon}'
+      :value='value'
+      @input='$emit("input", $event.target.value)'
       @focus='toggleFocus'
       @blur='toggleFocus')
   div(class='border-t')
@@ -32,6 +34,10 @@ export default {
     },
     textError: {
       type: String,
+      default: null,
+    },
+    value: {
+      type: [String, Number],
       default: null,
     },
   },

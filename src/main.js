@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import Vuelidate from 'vuelidate';
 import vClickOutside from 'v-click-outside';
 import autosize from 'v-autosize/dist/plugin';
 import App from './App.vue';
@@ -10,6 +11,7 @@ import ContainerScroll from './components/ContainerScroll.vue';
 
 Vue.config.productionTip = false;
 
+Vue.use(Vuelidate);
 Vue.use(vClickOutside);
 Vue.use(autosize);
 
