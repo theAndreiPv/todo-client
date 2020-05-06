@@ -3,23 +3,23 @@ div(class='flex flex-col items-center justify-center min-h-full px-3 py-12 bg-di
   BaseSvg(name='logo' class='w-16 h-16 mb-9 text-theme-accent')
   form(class='w-full px-12 py-10 bg-white border rounded max-w-100' @submit.prevent='formSubmit')
     BaseInput(
-      v-model.trim='$v.name.$model'
       class='mb-2'
       icon='user'
       placeholder='Имя (не обязательно)'
+      v-model.trim='$v.name.$model'
       :textError='textErrorName')
     BaseInput(
-      v-model.trim='$v.email.$model'
       class='mb-2'
       icon='email'
       placeholder='Email'
+      v-model.trim='$v.email.$model'
       :textError='textErrorEmail')
     BaseInput(
-      v-model.trim='$v.password.$model'
       class='mb-2'
       icon='lock'
       placeholder='Пароль'
       type='password'
+      v-model.trim='$v.password.$model'
       :textError='textErrorPassword')
     button(type='submit' class='w-full px-4 text-white duration-300 rounded font-secondary bg-theme hover:bg-theme-accent h-9') Зарегистрироваться
     div(class='mt-3 text-center') Уже есть аккаунт? &#32;
