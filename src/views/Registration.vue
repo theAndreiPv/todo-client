@@ -43,7 +43,7 @@ export default {
     password: '',
   }),
   validations: {
-    name: { required, maxLength: maxLength(64) },
+    name: { maxLength: maxLength(64) },
     email: { email, required, maxLength: maxLength(64) },
     password: { required, minLength: minLength(6), maxLength: maxLength(64) },
   },
@@ -71,14 +71,13 @@ export default {
     },
   },
   methods: {
-    formSubmit() {
+    async formSubmit() {
       if (!this.$v.$invalid) {
-        const formData = {
+        await this.$store.dispatch('registration', {
           name: this.name,
           email: this.email,
           password: this.password,
-        };
-        console.log(formData);
+        });
       } else {
         this.$v.$touch();
       }
