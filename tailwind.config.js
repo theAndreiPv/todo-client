@@ -1,4 +1,5 @@
 module.exports = {
+  purge: false,
   theme: {
     screens: {
       lg: { max: '1020px' },

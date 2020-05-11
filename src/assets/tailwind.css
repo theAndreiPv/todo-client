@@ -1,3 +1,4 @@
+/* purgecss start ignore */
 @tailwind base;
 
 input, textarea, button:focus {
@@ -15,6 +16,7 @@ input {
 html, body {
   @apply h-full;
 }
+/* purgecss end ignore */
 
 @tailwind components;
 
