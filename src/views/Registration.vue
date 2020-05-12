@@ -78,6 +78,7 @@ export default {
           email: this.email,
           password: this.password,
         });
+        this.$router.push('/dashboard');
       } else {
         this.$v.$touch();
       }

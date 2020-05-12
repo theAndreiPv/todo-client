@@ -1,18 +1,17 @@
-import api from '@/firebase';
+import firebase from '@/firebase';
 
 export default {
-  mutations: {
-    setInfo(err) {
-      console.log(err);
-    },
-  },
   actions: {
     async registration({ commit }, data) {
       try {
-        await api.registration(data);
+        await firebase.registration(data);
       } catch (err) {
-        commit('setInfo', err);
+        commit('setError', err);
+        throw err;
       }
+    },
+    async logout() {
+      await firebase.logout();
     },
   },
 };
