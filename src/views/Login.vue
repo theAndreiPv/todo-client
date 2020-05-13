@@ -74,5 +74,10 @@ export default {
       }
     },
   },
+  mounted() {
+    if (messages[this.$route.query.message]) {
+      this.$toasted.show(messages[this.$route.query.message]);
+    }
+  },
 };
 </script>

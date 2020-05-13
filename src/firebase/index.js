@@ -2,7 +2,7 @@ import firebase from 'firebase';
 
 export default {
   // auth
-  getUid() {
+  currentUser() {
     const user = firebase.auth().currentUser;
     return user ? user.uid : null;
   },
@@ -18,7 +18,7 @@ export default {
   },
   // info
   async getUserInfo() {
-    const uid = this.getUid();
+    const uid = this.currentUser();
     return (await firebase.database().ref(`/users/${uid}`).once('value')).val();
   },
 

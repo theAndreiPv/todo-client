@@ -36,8 +36,14 @@ firebase.initializeApp({
   appId: '1:153067853096:web:472cc861ee4a50b04cac1d',
 });
 
-new Vue({
-  router,
-  store,
-  render: (h) => h(App),
-}).$mount('#app');
+let app;
+
+firebase.auth().onAuthStateChanged(() => {
+  if (!app) {
+    app = new Vue({
+      router,
+      store,
+      render: (h) => h(App),
+    }).$mount('#app');
+  }
+});
