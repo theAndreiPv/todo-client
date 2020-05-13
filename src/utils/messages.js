@@ -3,4 +3,5 @@ export default {
   'auth/wrong-password': 'Не правильный пароль',
   'auth/email-already-in-use': 'Этот email уже используется',
   login: 'Войдите в аккаунт',
+  logout: 'Вы вышли из аккаунта',
 };

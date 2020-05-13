@@ -15,5 +15,8 @@ export default {
   components: {
     TheNavbar, TheMainBox, TheSidebar,
   },
+  async mounted() {
+    await this.$store.dispatch('fetchInfo');
+  },
 };
 </script>
