@@ -3,6 +3,7 @@ import Vuelidate from 'vuelidate';
 import vClickOutside from 'v-click-outside';
 import autosize from 'v-autosize/dist/plugin';
 import firebase from 'firebase/app';
+import Toasted from 'vue-toasted';
 import App from './App.vue';
 import router from './router';
 import store from './store';
@@ -17,6 +18,10 @@ Vue.config.productionTip = false;
 Vue.use(Vuelidate);
 Vue.use(vClickOutside);
 Vue.use(autosize);
+Vue.use(Toasted, {
+  position: 'bottom-center',
+  duration: 3000,
+});
 
 Vue.component('BaseSvg', BaseSvg);
 Vue.component('ContainerScroll', ContainerScroll);

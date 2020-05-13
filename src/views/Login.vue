@@ -22,6 +22,7 @@ div(class='flex flex-col items-center justify-center min-h-full px-3 py-12 bg-di
 
 <script>
 import BaseInput from '@/components/BaseInput.vue';
+import messages from '@/utils/messages';
 import {
   email, required, minLength, maxLength,
 } from 'vuelidate/lib/validators';
@@ -57,13 +58,17 @@ export default {
     },
   },
   methods: {
-    formSubmit() {
+    async formSubmit() {
       if (!this.$v.$invalid) {
-        const formData = {
-          email: this.email,
-          password: this.password,
-        };
-        console.log(formData);
+        try {
+          await this.$store.dispatch('login', {
+            email: this.email,
+            password: this.password,
+          });
+          this.$router.push('/dashboard');
+        } catch (err) {
+          this.$toasted.show(messages[err.code] || 'Что-то пошло не так');
+        }
       } else {
         this.$v.$touch();
       }

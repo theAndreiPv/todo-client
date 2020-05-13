@@ -28,6 +28,7 @@ div(class='flex flex-col items-center justify-center min-h-full px-3 py-12 bg-di
 
 <script>
 import BaseInput from '@/components/BaseInput.vue';
+import messages from '@/utils/messages';
 import {
   email, required, minLength, maxLength,
 } from 'vuelidate/lib/validators';
@@ -73,12 +74,17 @@ export default {
   methods: {
     async formSubmit() {
       if (!this.$v.$invalid) {
-        await this.$store.dispatch('registration', {
-          name: this.name,
-          email: this.email,
-          password: this.password,
-        });
-        this.$router.push('/dashboard');
+        try {
+          await this.$store.dispatch('registration', {
+            name: this.name,
+            email: this.email,
+            password: this.password,
+          });
+          this.$router.push('/dashboard');
+          this.$toasted.show('Регистрация выполнена');
+        } catch (err) {
+          this.$toasted.show(messages[err.code] || 'Что-то пошло не так');
+        }
       } else {
         this.$v.$touch();
       }
