@@ -15,7 +15,7 @@ main(class='flex flex-col flex-grow')
         v-for='task in tasks'
         :title='task.name'
         :completed='task.completed'
-        :to='"#"+task.id'
+        :to='{ query: { task: task.id } }'
         @click.native.stop='$store.commit("showMobileSidebar")')
 </template>
 

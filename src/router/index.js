@@ -39,20 +39,3 @@ router.beforeEach((to, from, next) => {
 });
 
 export default router;
-
-// - /dashboard
-// - /dashboard/54
-
-// Динамические пути (ок)
-// -- путь с звездочкой* ($route.params.pathMatch)
-// возможности path-to-regexp
-// Вложенные маршруты
-// Именованные представления
-
-// children: [
-//   {
-//     path: ':task_id',
-//     component: () => import('../views/Registration.vue'),
-//     props: true,
-//   },
-// ],
