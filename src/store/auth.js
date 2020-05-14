@@ -11,6 +11,7 @@ export default {
     async logout({ commit }) {
       await firebase.logout();
       commit('clearInfo');
+      commit('clearTasks');
     },
   },
 };

@@ -3,6 +3,7 @@ import Vuex from 'vuex';
 import layout from './layout';
 import auth from './auth';
 import info from './info';
+import tasks from './tasks';
 
 Vue.use(Vuex);
 
@@ -16,6 +17,6 @@ export default new Vuex.Store({
   getters: {
   },
   modules: {
-    layout, auth, info,
+    layout, auth, info, tasks,
   },
 });

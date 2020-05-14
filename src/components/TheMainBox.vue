@@ -8,11 +8,15 @@ main(class='flex flex-col flex-grow')
     input(
       class='block w-full h-10 px-3 border border-transparent rounded placeholder-black-30 bg-theme-8 focus:border-accent'
       placeholder='Добавьте задачу, нажмите Enter для сохранения.'
-      spellcheck='false'
-    )
+      spellcheck='false')
   ContainerScroll(class='flex-grow')
     div(class='px-4')
-      BaseTask(title='Обучение веб 6h' to='#1' @click.native.stop='$store.commit("showMobileSidebar")')
+      BaseTask(
+        v-for='task in tasks'
+        :title='task.name'
+        :completed='task.completed'
+        :to='"#"+task.id'
+        @click.native.stop='$store.commit("showMobileSidebar")')
 </template>
 
 <script>
@@ -22,6 +26,11 @@ export default {
   name: 'TheMainBox',
   components: {
     BaseTask,
+  },
+  computed: {
+    tasks() {
+      return this.$store.getters.getTasks;
+    },
   },
 };
 </script>
