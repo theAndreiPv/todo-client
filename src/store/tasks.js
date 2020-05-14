@@ -17,12 +17,9 @@ export default {
       const tasks = await firebase.getTasks();
       commit('setTasks', tasks);
     },
-    // async createTasks({ dispatch, commit }, record) {
-    // },
-    // async fetchTaskById({ dispatch, commit }, id) {
-    // },
   },
   getters: {
-    getTasks: (state) => state.tasks,
+    getTasks: (state) => Object.keys(state.tasks).map((key) => ({ ...state.tasks[key], id: key })),
+    getTaskById: (state) => (id) => state.tasks[id] || {},
   },
 };

@@ -26,7 +26,6 @@ export default {
   // tasks
   async getTasks() {
     const { uid } = this.currentUser();
-    const tasks = (await firebase.database().ref(`/users/${uid}/tasks`).once('value')).val() || {};
-    return Object.keys(tasks).map((key) => ({ ...tasks[key], id: key }));
+    return (await firebase.database().ref(`/users/${uid}/tasks`).once('value')).val() || {};
   },
 };

@@ -6,11 +6,20 @@ aside(
   header(class='flex items-center flex-shrink-0 px-6 border-b h-18')
     button(class='hidden p-2 mr-3 -ml-2 sm:block' @click='$store.commit("hideMobileSidebar")')
       BaseSvg(name='arrow' class='w-5 h-5 text-black-30')
-    TaskCheckbox(completed)
+    TaskCheckbox(:completed='taskInfo.completed')
   ContainerScroll(class='flex-grow')
     div(class='px-6 py-4')
-      textarea(v-autosize rows='1' class='block w-full mb-4 font-bold resize-none text-6') Обучение веб 6h
-      textarea(v-autosize rows='1' class='block w-full leading-6 resize-none placeholder-black-30' placeholder='Description')
+      textarea(
+        v-autosize
+        rows='1'
+        class='block w-full mb-4 font-bold resize-none text-6'
+        v-model='taskInfo.name')
+      textarea(
+        v-autosize
+        rows='1'
+        class='block w-full leading-6 resize-none placeholder-black-30'
+        placeholder='Description'
+        v-model='taskInfo.description')
   footer(class='flex items-center flex-shrink-0 h-12 px-6 border-t')
     button
       BaseSvg(name='delete' class='w-6 h-6 text-black-30 hover:text-black-50')
@@ -27,6 +36,9 @@ export default {
   computed: {
     classContainer() {
       return { 'sm:hidden': !this.$store.getters.displaySidebar };
+    },
+    taskInfo() {
+      return this.$store.getters.getTaskById(this.$route.query.task);
     },
   },
   methods: {
