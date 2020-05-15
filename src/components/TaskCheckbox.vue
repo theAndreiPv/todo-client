@@ -30,7 +30,12 @@ export default {
   },
   methods: {
     completeToggle() {
-      this.$store.dispatch('taskCompleteToggle', this.taskId);
+      this.$store.dispatch('taskUpdate', {
+        id: this.taskId,
+        newData: {
+          completed: !this.completed,
+        },
+      });
     },
   },
 };

@@ -20,9 +20,8 @@ export default {
       const tasks = await firebase.getTasks();
       commit('setTasks', tasks);
     },
-    async taskCompleteToggle({ commit, getters }, id) {
-      const data = getters.getTaskById(id);
-      data.completed = !data.completed;
+    async taskUpdate({ commit, getters }, { id, newData }) {
+      const data = { ...getters.getTaskById(id), ...newData };
       await firebase.taskUpdate(id, data);
       commit('updateTask', { id, data });
     },
