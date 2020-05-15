@@ -13,6 +13,7 @@ main(class='flex flex-col flex-grow')
     div(class='px-4')
       BaseTask(
         v-for='task in tasks'
+        :id='task.id'
         :title='task.name'
         :completed='task.completed'
         :to='{ query: { task: task.id } }'

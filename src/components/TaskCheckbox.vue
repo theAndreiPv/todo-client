@@ -1,5 +1,5 @@
 <template lang="pug">
-button
+button(@click.prevent='completeToggle')
   BaseSvg(:name='iconName' class='w-4 h-4' :class='classIcon')
 </template>
 
@@ -7,6 +7,10 @@ button
 export default {
   name: 'TaskCheckbox',
   props: {
+    taskId: {
+      type: [String, Number],
+      required: true,
+    },
     completed: {
       type: Boolean,
       default: false,
@@ -22,6 +26,11 @@ export default {
     },
     iconName() {
       return this.completed ? 'completed' : 'checkbox';
+    },
+  },
+  methods: {
+    completeToggle() {
+      this.$store.dispatch('taskCompleteToggle', this.taskId);
     },
   },
 };

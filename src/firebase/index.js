@@ -28,4 +28,8 @@ export default {
     const { uid } = this.currentUser();
     return (await firebase.database().ref(`/users/${uid}/tasks`).once('value')).val() || {};
   },
+  async taskUpdate(id, data) {
+    const { uid } = this.currentUser();
+    await firebase.database().ref(`/users/${uid}/tasks`).child(id).update(data);
+  },
 };

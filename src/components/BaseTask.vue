@@ -1,6 +1,6 @@
 <template lang="pug">
 router-link(:to='to' draggable='false' class='flex h-10 px-3 rounded' :class='classContainer')
-  TaskCheckbox(class='items-center mr-3' @click.prevent='' :completed='completed' fade)
+  TaskCheckbox(class='items-center mr-3' :taskId='id' :completed='completed' fade)
   input(type='text' class='flex-grow cursor-pointer' :class='classInput' :value='title')
 </template>
 
@@ -9,7 +9,14 @@ import TaskCheckbox from '@/components/TaskCheckbox.vue';
 
 export default {
   name: 'BaseTask',
+  components: {
+    TaskCheckbox,
+  },
   props: {
+    id: {
+      type: [String, Number],
+      required: true,
+    },
     title: {
       type: String,
       default: '',
@@ -37,9 +44,6 @@ export default {
         this.completed ? 'text-black-30' : '',
       ];
     },
-  },
-  components: {
-    TaskCheckbox,
   },
 };
 </script>
