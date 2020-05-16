@@ -29,6 +29,10 @@ export default {
       await firebase.addTask({ name });
       dispatch('fetchTasks');
     },
+    async removeTask({ dispatch }, id) {
+      await firebase.removeTask(id);
+      dispatch('fetchTasks');
+    },
   },
   getters: {
     getTasks: (state) => Object.keys(state.tasks).map((key) => ({ ...state.tasks[key], id: key })),

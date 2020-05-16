@@ -40,4 +40,8 @@ export default {
       name,
     });
   },
+  async removeTask(id) {
+    const { uid } = this.currentUser();
+    await firebase.database().ref(`/users/${uid}/tasks`).child(id).remove();
+  },
 };

@@ -23,7 +23,7 @@ aside(
         v-model='taskInfo.description'
         @input='updateDescription')
   footer(class='flex items-center flex-shrink-0 h-12 px-6 border-t')
-    button
+    button(@click='$store.dispatch("removeTask", taskId)')
       BaseSvg(name='delete' class='w-6 h-6 text-black-30 hover:text-black-50')
 </template>
 
