@@ -35,7 +35,11 @@ export default {
     },
   },
   getters: {
-    getTasks: (state) => Object.keys(state.tasks).map((key) => ({ ...state.tasks[key], id: key })),
+    getTasks: (state) => (
+      Object.keys(state.tasks)
+        .map((key) => ({ ...state.tasks[key], id: key }))
+        .sort((a) => (a.completed ? 1 : -1))
+    ),
     getTaskById: (state) => (id) => state.tasks[id] || {},
   },
 };
