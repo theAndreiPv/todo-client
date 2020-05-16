@@ -12,7 +12,7 @@ nav(
     router-link(to='' class='flex items-center px-2 rounded h-9 bg-black-10')
       BaseSvg(name='all' class='w-6 h-6 mr-2 text-white-8')
       span(class='flex-grow font-bold') Все
-      span(class='text-3') 27
+      span(class='text-3') {{$store.getters.getTasksLength || ''}}
 </template>
 
 <script>

@@ -2,28 +2,25 @@ import firebase from '@/firebase';
 
 export default {
   state: {
-    tasks: {},
+    tasks: [],
   },
   mutations: {
     setTasks(state, tasks) {
       state.tasks = tasks;
     },
     clearTasks(state) {
-      state.tasks = {};
-    },
-    updateTask(state, { id, data }) {
-      state.tasks[id] = data;
+      state.tasks = [];
     },
   },
   actions: {
     async fetchTasks({ commit }) {
       const tasks = await firebase.getTasks();
-      commit('setTasks', tasks);
+      commit('setTasks', Object.keys(tasks).map((key) => ({ ...tasks[key], id: key })));
     },
-    async taskUpdate({ commit, getters }, { id, newData }) {
+    async taskUpdate({ dispatch, getters }, { id, newData }) {
       const data = { ...getters.getTaskById(id), ...newData };
       await firebase.taskUpdate(id, data);
-      commit('updateTask', { id, data });
+      dispatch('fetchTasks');
     },
     async addTask({ dispatch }, { name }) {
       await firebase.addTask({ name });
@@ -35,11 +32,8 @@ export default {
     },
   },
   getters: {
-    getTasks: (state) => (
-      Object.keys(state.tasks)
-        .map((key) => ({ ...state.tasks[key], id: key }))
-        .sort((a) => (a.completed ? 1 : -1))
-    ),
-    getTaskById: (state) => (id) => state.tasks[id] || {},
+    getTasks: (state) => state.tasks.sort((a) => (a.completed ? 1 : -1)),
+    getTaskById: (state) => (id) => state.tasks.find((a) => a.id === id) || {},
+    getTasksLength: (state) => state.tasks.length,
   },
 };
