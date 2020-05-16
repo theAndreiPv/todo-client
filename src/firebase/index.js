@@ -32,4 +32,12 @@ export default {
     const { uid } = this.currentUser();
     await firebase.database().ref(`/users/${uid}/tasks`).child(id).update(data);
   },
+  async addTask({ completed = false, description = '', name }) {
+    const { uid } = this.currentUser();
+    await firebase.database().ref(`/users/${uid}/tasks`).push({
+      completed,
+      description,
+      name,
+    });
+  },
 };

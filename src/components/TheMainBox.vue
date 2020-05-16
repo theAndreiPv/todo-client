@@ -8,7 +8,9 @@ main(class='flex flex-col flex-grow')
     input(
       class='block w-full h-10 px-3 border border-transparent rounded placeholder-black-30 bg-theme-8 focus:border-accent'
       placeholder='Добавьте задачу, нажмите Enter для сохранения.'
-      spellcheck='false')
+      spellcheck='false'
+      v-model='taskNameInput'
+      @keyup.enter='addTask')
   ContainerScroll(class='flex-grow')
     div(class='px-4')
       BaseTask(
@@ -22,15 +24,31 @@ main(class='flex flex-col flex-grow')
 
 <script>
 import BaseTask from '@/components/BaseTask.vue';
+import messages from '@/utils/messages';
 
 export default {
   name: 'TheMainBox',
   components: {
     BaseTask,
   },
+  data: () => ({
+    taskNameInput: '',
+  }),
   computed: {
     tasks() {
       return this.$store.getters.getTasks;
+    },
+  },
+  methods: {
+    async addTask() {
+      if (this.taskNameInput) {
+        await this.$store.dispatch('addTask', {
+          name: this.taskNameInput,
+        });
+        this.taskNameInput = '';
+      } else {
+        this.$toasted.show(messages.enterTaskName);
+      }
     },
   },
 };

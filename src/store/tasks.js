@@ -25,6 +25,10 @@ export default {
       await firebase.taskUpdate(id, data);
       commit('updateTask', { id, data });
     },
+    async addTask({ dispatch }, { name }) {
+      await firebase.addTask({ name });
+      dispatch('fetchTasks');
+    },
   },
   getters: {
     getTasks: (state) => Object.keys(state.tasks).map((key) => ({ ...state.tasks[key], id: key })),

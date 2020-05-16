@@ -4,4 +4,5 @@ export default {
   'auth/email-already-in-use': 'Этот email уже используется',
   login: 'Войдите в аккаунт',
   logout: 'Вы вышли из аккаунта',
+  enterTaskName: 'Введите название задачи',
 };
