@@ -26,19 +26,17 @@ export default {
   // tasks
   async getTasks() {
     const { uid } = this.currentUser();
-    return (await firebase.database().ref(`/users/${uid}/tasks`).once('value')).val() || {};
+    const tasks = (await firebase.database().ref(`/users/${uid}/tasks`).once('value')).val() || {};
+    return Object.keys(tasks).map((key) => ({ ...tasks[key], id: key }));
   },
-  async taskUpdate(id, data) {
+  async taskUpdate(id, newData) {
     const { uid } = this.currentUser();
-    await firebase.database().ref(`/users/${uid}/tasks`).child(id).update(data);
+    await firebase.database().ref(`/users/${uid}/tasks`).child(id).update(newData);
   },
-  async addTask({ completed = false, description = '', name }) {
+  async addTask(data) {
     const { uid } = this.currentUser();
-    await firebase.database().ref(`/users/${uid}/tasks`).push({
-      completed,
-      description,
-      name,
-    });
+    const result = await firebase.database().ref(`/users/${uid}/tasks`).push(data);
+    return result;
   },
   async removeTask(id) {
     const { uid } = this.currentUser();

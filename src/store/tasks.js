@@ -11,29 +11,45 @@ export default {
     clearTasks(state) {
       state.tasks = [];
     },
+    taskUpdate(state, { id, newData }) {
+      const i = state.tasks.findIndex((el) => el.id === id);
+      state.tasks[i] = Object.assign(state.tasks[i], newData);
+    },
+    addTask(state, data) {
+      state.tasks.push(data);
+    },
+    removeTask(state, id) {
+      const i = state.tasks.findIndex((el) => el.id === id);
+      state.tasks.splice(i, 1);
+    },
   },
   actions: {
     async fetchTasks({ commit }) {
       const tasks = await firebase.getTasks();
-      commit('setTasks', Object.keys(tasks).map((key) => ({ ...tasks[key], id: key })));
+      commit('setTasks', tasks);
     },
-    async taskUpdate({ dispatch, getters }, { id, newData }) {
-      const data = { ...getters.getTaskById(id), ...newData };
-      await firebase.taskUpdate(id, data);
-      dispatch('fetchTasks');
+    async taskUpdate(ctx, { id, newData }) {
+      await firebase.taskUpdate(id, newData);
     },
-    async addTask({ dispatch }, { name }) {
-      await firebase.addTask({ name });
-      dispatch('fetchTasks');
+    async addTask({ commit }, data) {
+      const task = {
+        completed: data.completed || false,
+        description: data.description || '',
+        name: data.name,
+      };
+      const { key } = await firebase.addTask(task);
+      task.id = key;
+      commit('addTask', task);
     },
-    async removeTask({ dispatch }, id) {
+    async removeTask({ commit }, id) {
       await firebase.removeTask(id);
-      dispatch('fetchTasks');
+      commit('removeTask', id);
     },
   },
   getters: {
-    getTasks: (state) => state.tasks.sort((a) => (a.completed ? 1 : -1)),
-    getTaskById: (state) => (id) => state.tasks.find((a) => a.id === id) || {},
+    getTasks: (state) => state.tasks.sort((el) => (el.completed ? 1 : -1)),
+    getTaskById: (state) => (id) => state.tasks.find((el) => el.id === id),
     getTasksLength: (state) => state.tasks.length,
+    getTasksLengthActive: (state) => state.tasks.filter((el) => !el.completed).length,
   },
 };

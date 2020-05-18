@@ -4,11 +4,11 @@ aside(
   :class='classContainer'
   v-click-outside='hideOnMobile')
   template(v-if='$store.getters.getTasksLength')
-    template(v-if='taskId')
+    template(v-if='taskInfo')
       header(class='flex items-center flex-shrink-0 px-6 border-b h-18')
         button(class='hidden p-2 mr-3 -ml-2 sm:block' @click='$store.commit("hideMobileSidebar")')
           BaseSvg(name='arrow' class='w-5 h-5 text-black-30')
-        TaskCheckbox(:completed='taskInfo.completed' :taskId='taskId')
+        TaskCheckbox(v-model='taskInfo.completed')
       ContainerScroll(class='flex-grow')
         div(class='px-6 py-4')
           textarea(
@@ -57,16 +57,16 @@ export default {
     hideOnMobile() {
       this.$store.commit('hideMobileSidebar');
     },
-    updateName() {
-      this.$store.dispatch('taskUpdate', {
+    async updateName() {
+      await this.$store.dispatch('taskUpdate', {
         id: this.taskId,
         newData: {
           name: this.taskInfo.name,
         },
       });
     },
-    updateDescription() {
-      this.$store.dispatch('taskUpdate', {
+    async updateDescription() {
+      await this.$store.dispatch('taskUpdate', {
         id: this.taskId,
         newData: {
           description: this.taskInfo.description,
@@ -75,8 +75,8 @@ export default {
     },
   },
   created() {
-    this.updateName = debounce(this.updateName, 500);
-    this.updateDescription = debounce(this.updateDescription, 500);
+    this.updateName = debounce(this.updateName, 200);
+    this.updateDescription = debounce(this.updateDescription, 200);
   },
 };
 </script>

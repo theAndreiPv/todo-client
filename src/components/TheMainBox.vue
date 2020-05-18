@@ -15,9 +15,9 @@ main(class='flex flex-col flex-grow')
     div(class='px-4')
       BaseTask(
         v-for='task in tasks'
-        :id='task.id'
-        :title='task.name'
-        :completed='task.completed'
+        :title.sync='task.name'
+        :completed.sync='task.completed'
+        :active='$route.query.task === task.id'
         :to='{ query: { task: task.id } }'
         @click.native.stop='$store.commit("showMobileSidebar")')
   div(v-else class='flex items-center justify-center flex-grow px-4')

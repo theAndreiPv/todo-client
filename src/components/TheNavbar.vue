@@ -4,7 +4,7 @@ nav(
   :class='classContainer'
   v-click-outside='hideOnMobile')
   header(class='flex items-center px-5 py-5')
-    img(src='@/assets/avatar.jpg' class='mr-2 rounded-full w-7 h-7')
+    img(src='@/assets/avatar.png' class='mr-2 rounded-full w-7 h-7')
     span(class='flex-grow truncate') {{userName}}
     button(@click='logout')
       BaseSvg(name='logout' class='w-5 h-5 text-white-40 hover:text-white-50')
@@ -12,7 +12,7 @@ nav(
     router-link(to='' class='flex items-center px-2 rounded h-9 bg-black-10')
       BaseSvg(name='all' class='w-6 h-6 mr-2 text-white-8')
       span(class='flex-grow font-bold') Все
-      span(class='text-3') {{$store.getters.getTasksLength || ''}}
+      span(class='text-3') {{$store.getters.getTasksLengthActive || ''}}
 </template>
 
 <script>

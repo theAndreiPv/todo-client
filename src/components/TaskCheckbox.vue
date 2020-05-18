@@ -1,17 +1,17 @@
 <template lang="pug">
-button(@click.prevent='completeToggle')
+button(@click.prevent='$emit("change", !checked)')
   BaseSvg(:name='iconName' class='w-4 h-4' :class='classIcon')
 </template>
 
 <script>
 export default {
   name: 'TaskCheckbox',
+  model: {
+    prop: 'checked',
+    event: 'change',
+  },
   props: {
-    taskId: {
-      type: [String, Number],
-      required: true,
-    },
-    completed: {
+    checked: {
       type: Boolean,
       default: false,
     },
@@ -22,20 +22,10 @@ export default {
   },
   computed: {
     classIcon() {
-      return this.completed && this.fade ? 'text-black-10' : 'text-black-20';
+      return this.checked && this.fade ? 'text-black-10' : 'text-black-20';
     },
     iconName() {
-      return this.completed ? 'completed' : 'checkbox';
-    },
-  },
-  methods: {
-    completeToggle() {
-      this.$store.dispatch('taskUpdate', {
-        id: this.taskId,
-        newData: {
-          completed: !this.completed,
-        },
-      });
+      return this.checked ? 'completed' : 'checkbox';
     },
   },
 };
