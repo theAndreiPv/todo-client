@@ -14,14 +14,14 @@ aside(
           textarea(
             v-autosize
             rows='1'
-            class='block w-full mb-4 font-bold resize-none text-6'
+            class='w-full mb-4 font-bold text-6'
             v-model='taskInfo.name'
             @input='updateName')
           textarea(
             v-autosize
             rows='1'
-            class='block w-full leading-6 resize-none placeholder-black-30'
-            placeholder='Description'
+            class='w-full leading-6 placeholder-black-30'
+            placeholder='Описание'
             v-model='taskInfo.description'
             @input='updateDescription')
       footer(class='flex items-center flex-shrink-0 h-12 px-6 border-t')

@@ -17,7 +17,7 @@ div(class='flex flex-col items-center justify-center min-h-full px-3 py-12 bg-di
       :textError='textErrorPassword')
     BaseButton(type='submit') Войти
     div(class='mt-3 text-center') Нет аккаунта? &#32;
-      router-link(to='/registration' class='hover:underline text-theme') Регистрация
+      router-link.TextLink(to='/registration') Регистрация
 </template>
 
 <script>

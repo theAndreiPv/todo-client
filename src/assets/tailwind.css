@@ -9,6 +9,10 @@ input, textarea {
   @apply bg-transparent;
 }
 
+textarea {
+  @apply resize-none;
+}
+
 input {
   @apply min-w-0;
 }
@@ -16,8 +20,24 @@ input {
 html, body {
   @apply h-full;
 }
+
+input[type='button'] {
+  @apply cursor-pointer;
+}
+
+textarea, input[type='text'], input[type='password'] {
+  @apply block;
+}
+
 /* purgecss end ignore */
 
 @tailwind components;
+
+.TextLink {
+  @apply text-theme;
+}
+.TextLink:hover {
+  @apply underline;
+}
 
 @tailwind utilities;

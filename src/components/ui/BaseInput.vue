@@ -1,6 +1,6 @@
 <template lang="pug">
 input(
-  class='block w-full h-10 px-3 border border-transparent rounded placeholder-black-30 bg-theme-8 focus:border-accent'
+  class='w-full h-10 px-3 border border-transparent rounded placeholder-black-30 bg-theme-8 focus:border-accent'
   :value='value'
   @input='$emit("input", $event.target.value)')
 </template>

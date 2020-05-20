@@ -1,7 +1,7 @@
 <template lang="pug">
 router-link(:to='to' draggable='false' class='flex h-10 px-3 rounded' :class='classContainer')
   TaskCheckbox(
-    class='items-center mr-3'
+    class='mr-3'
     fade
     :checked='completed'
     @change='$emit("update:completed", $event)')
