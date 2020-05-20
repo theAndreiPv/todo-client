@@ -2,13 +2,13 @@
 div(class='flex flex-col items-center justify-center min-h-full px-3 py-12 bg-dim')
   BaseSvg(name='logo' class='w-16 h-16 mb-9 text-theme-accent')
   form(class='w-full px-12 py-10 bg-white border rounded max-w-100' @submit.prevent='formSubmit')
-    BaseInput(
+    FormInput(
       class='mb-2'
       icon='email'
       placeholder='Email'
       v-model.trim='$v.email.$model'
       :textError='textErrorEmail')
-    BaseInput(
+    FormInput(
       class='mb-2'
       icon='lock'
       placeholder='Пароль'
@@ -21,7 +21,7 @@ div(class='flex flex-col items-center justify-center min-h-full px-3 py-12 bg-di
 </template>
 
 <script>
-import BaseInput from '@/components/BaseInput.vue';
+import FormInput from '@/components/FormInput.vue';
 import messages from '@/utils/messages';
 import {
   email, required, minLength, maxLength,
@@ -30,7 +30,7 @@ import {
 export default {
   name: 'Login',
   components: {
-    BaseInput,
+    FormInput,
   },
   data: () => ({
     email: '',

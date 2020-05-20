@@ -18,7 +18,7 @@ div
 
 <script>
 export default {
-  name: 'BaseInput',
+  name: 'FormInput',
   props: {
     icon: {
       type: String,
