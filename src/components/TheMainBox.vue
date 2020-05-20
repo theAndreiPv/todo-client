@@ -29,8 +29,8 @@ main(class='flex flex-col flex-grow')
 </template>
 
 <script>
-import BaseInput from '@/components/BaseInput.vue';
-import BaseTask from '@/components/BaseTask.vue';
+import BaseInput from '@/components/ui/BaseInput.vue';
+import BaseTask from '@/components/ui/BaseTask.vue';
 import messages from '@/utils/messages';
 
 export default {

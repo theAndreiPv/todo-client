@@ -14,7 +14,7 @@ router-link(:to='to' draggable='false' class='flex h-10 px-3 rounded' :class='cl
 </template>
 
 <script>
-import TaskCheckbox from '@/components/TaskCheckbox.vue';
+import TaskCheckbox from '@/components/ui/TaskCheckbox.vue';
 // import { debounce } from 'debounce';
 
 export default {

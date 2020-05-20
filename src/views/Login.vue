@@ -21,8 +21,8 @@ div(class='flex flex-col items-center justify-center min-h-full px-3 py-12 bg-di
 </template>
 
 <script>
-import FormInput from '@/components/FormInput.vue';
-import BaseButton from '@/components/BaseButton.vue';
+import FormInput from '@/components/ui/FormInput.vue';
+import BaseButton from '@/components/ui/BaseButton.vue';
 import messages from '@/utils/messages';
 import {
   email, required, minLength, maxLength,

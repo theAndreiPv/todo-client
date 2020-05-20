@@ -8,8 +8,8 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 import './assets/tailwind.css';
-import BaseSvg from './components/BaseSvg.vue';
-import ContainerScroll from './components/ContainerScroll.vue';
+import BaseSvg from './components/ui/BaseSvg.vue';
+import ContainerScroll from './components/ui/ContainerScroll.vue';
 import 'firebase/auth';
 import 'firebase/database';
 

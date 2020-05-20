@@ -34,7 +34,7 @@ aside(
 </template>
 
 <script>
-import TaskCheckbox from '@/components/TaskCheckbox.vue';
+import TaskCheckbox from '@/components/ui/TaskCheckbox.vue';
 import { debounce } from 'debounce';
 
 export default {

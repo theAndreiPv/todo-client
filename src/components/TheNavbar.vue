@@ -13,8 +13,8 @@ nav(
 </template>
 
 <script>
-import NavbarButton from '@/components/NavbarButton.vue';
-import BaseAvatar from '@/components/BaseAvatar.vue';
+import NavbarButton from '@/components/ui/NavbarButton.vue';
+import BaseAvatar from '@/components/ui/BaseAvatar.vue';
 
 export default {
   name: 'TheNavbar',
