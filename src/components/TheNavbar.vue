@@ -9,15 +9,17 @@ nav(
     button(@click='logout')
       BaseSvg(name='logout' class='w-5 h-5 text-white-40 hover:text-white-50')
   div(class='px-3')
-    router-link(to='' class='flex items-center px-2 rounded h-9 bg-black-10')
-      BaseSvg(name='all' class='w-6 h-6 mr-2 text-white-8')
-      span(class='flex-grow font-bold') Все
-      span(class='text-3') {{$store.getters.getTasksLengthActive || ''}}
+    NavbarButton(to='/dashboard' icon='all' :count='$store.getters.getTasksLengthActive' active) Все
 </template>
 
 <script>
+import NavbarButton from '@/components/NavbarButton.vue';
+
 export default {
   name: 'TheNavbar',
+  components: {
+    NavbarButton,
+  },
   computed: {
     classContainer() {
       return { 'lg:hidden': !this.$store.getters.displayNavbar };
