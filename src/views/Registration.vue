@@ -21,13 +21,14 @@ div(class='flex flex-col items-center justify-center min-h-full px-3 py-12 bg-di
       type='password'
       v-model.trim='$v.password.$model'
       :textError='textErrorPassword')
-    button(type='submit' class='w-full px-4 text-white duration-300 rounded font-secondary bg-theme hover:bg-theme-accent h-9') Зарегистрироваться
+    BaseButton(type='submit') Зарегистрироваться
     div(class='mt-3 text-center') Уже есть аккаунт? &#32;
       router-link(to='/login' class='hover:underline text-theme') Войти
 </template>
 
 <script>
 import FormInput from '@/components/FormInput.vue';
+import BaseButton from '@/components/BaseButton.vue';
 import messages from '@/utils/messages';
 import {
   email, required, minLength, maxLength,
@@ -36,7 +37,7 @@ import {
 export default {
   name: 'Registration',
   components: {
-    FormInput,
+    FormInput, BaseButton,
   },
   data: () => ({
     name: '',
