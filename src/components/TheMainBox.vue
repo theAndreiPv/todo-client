@@ -5,12 +5,11 @@ main(class='flex flex-col flex-grow')
       button(class='hidden p-4 -ml-4 lg:block openButton' @click.stop='$store.commit("toggleDisplayMobileNavbar")')
         BaseSvg(name='bars' class='w-4 h-4 text-black-30')
       h1(class='text-9') Все
-    input(
-      class='block w-full h-10 px-3 border border-transparent rounded placeholder-black-30 bg-theme-8 focus:border-accent'
+    BaseInput(
+      v-model='taskNameInput'
       placeholder='Добавьте задачу, нажмите Enter для сохранения.'
       spellcheck='false'
-      v-model='taskNameInput'
-      @keyup.enter='addTask')
+      @keyup.native.enter='addTask')
   ContainerScroll(v-if='$store.getters.getTasksLength' class='flex-grow')
     div(class='px-4')
       BaseTask(
@@ -30,13 +29,14 @@ main(class='flex flex-col flex-grow')
 </template>
 
 <script>
+import BaseInput from '@/components/BaseInput.vue';
 import BaseTask from '@/components/BaseTask.vue';
 import messages from '@/utils/messages';
 
 export default {
   name: 'TheMainBox',
   components: {
-    BaseTask,
+    BaseTask, BaseInput,
   },
   data: () => ({
     taskNameInput: '',
