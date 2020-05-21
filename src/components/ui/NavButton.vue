@@ -7,7 +7,7 @@ router-link(:to='to' class='flex items-center px-2 rounded h-9' :class='classCon
 
 <script>
 export default {
-  name: 'NavbarButton',
+  name: 'NavButton',
   props: {
     to: {
       type: [String, Object],

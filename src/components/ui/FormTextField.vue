@@ -18,7 +18,7 @@ div
 
 <script>
 export default {
-  name: 'FormInput',
+  name: 'FormTextField',
   props: {
     icon: {
       type: String,

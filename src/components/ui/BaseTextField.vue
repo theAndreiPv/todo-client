@@ -7,7 +7,7 @@ input(
 
 <script>
 export default {
-  name: 'BaseInput',
+  name: 'BaseTextField',
   props: {
     value: {
       type: [String, Number],
