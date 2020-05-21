@@ -11,19 +11,8 @@ aside(
         TaskCheckbox(v-model='taskInfo.completed')
       ContainerScroll(class='flex-grow')
         div(class='px-6 py-4')
-          textarea(
-            v-autosize
-            rows='1'
-            class='w-full mb-4 font-bold text-6'
-            v-model='taskInfo.name'
-            @input='updateName')
-          textarea(
-            v-autosize
-            rows='1'
-            class='w-full leading-6 placeholder-black-30'
-            placeholder='Описание'
-            v-model='taskInfo.description'
-            @input='updateDescription')
+          AutosizeTextarea(v-model='taskInfo.name' @input='updateName' theme='heading' class='mb-4')
+          AutosizeTextarea(v-model='taskInfo.description' @input='updateDescription' placeholder='Описание')
       footer(class='flex items-center flex-shrink-0 h-12 px-6 border-t')
         button(@click='$store.dispatch("removeTask", taskId)')
           BaseSvg(name='delete' class='w-6 h-6 text-black-30 hover:text-black-50')
@@ -35,12 +24,13 @@ aside(
 
 <script>
 import TaskCheckbox from '@/components/ui/TaskCheckbox.vue';
+import AutosizeTextarea from '@/components/ui/AutosizeTextarea.vue';
 import { debounce } from 'debounce';
 
 export default {
   name: 'TheSidebar',
   components: {
-    TaskCheckbox,
+    TaskCheckbox, AutosizeTextarea,
   },
   computed: {
     classContainer() {

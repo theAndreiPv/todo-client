@@ -2,10 +2,10 @@
 main(class='flex flex-col flex-grow')
   header(class='mb-5 px-7')
     div(class='flex items-center h-18')
-      button(class='hidden p-4 -ml-4 lg:block openButton' @click.stop='$store.commit("toggleDisplayMobileNavbar")')
+      button(class='hidden p-4 -ml-4 lg:block' @click.stop='$store.commit("toggleDisplayMobileNavbar")')
         BaseSvg(name='bars' class='w-4 h-4 text-black-30')
       h1(class='text-9') Все
-    BaseInput(
+    BaseTextField(
       v-model='taskNameInput'
       placeholder='Добавьте задачу, нажмите Enter для сохранения.'
       spellcheck='false'
@@ -14,6 +14,7 @@ main(class='flex flex-col flex-grow')
     div(class='px-4')
       BaseTask(
         v-for='task in tasks'
+        :key='task.id'
         :title.sync='task.name'
         :completed.sync='task.completed'
         :active='$route.query.task === task.id'
@@ -29,14 +30,14 @@ main(class='flex flex-col flex-grow')
 </template>
 
 <script>
-import BaseInput from '@/components/ui/BaseInput.vue';
+import BaseTextField from '@/components/ui/BaseTextField.vue';
 import BaseTask from '@/components/ui/BaseTask.vue';
 import messages from '@/utils/messages';
 
 export default {
   name: 'TheMainBox',
   components: {
-    BaseTask, BaseInput,
+    BaseTask, BaseTextField,
   },
   data: () => ({
     taskNameInput: '',

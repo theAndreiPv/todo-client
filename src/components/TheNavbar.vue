@@ -9,17 +9,17 @@ nav(
     button(@click='logout')
       BaseSvg(name='logout' class='w-5 h-5 text-white-40 hover:text-white-50')
   div(class='px-3')
-    NavbarButton(to='/dashboard' icon='all' :count='$store.getters.getTasksLengthActive' active) Все
+    NavButton(to='/dashboard' icon='all' :count='$store.getters.getTasksLengthActive' active) Все
 </template>
 
 <script>
-import NavbarButton from '@/components/ui/NavbarButton.vue';
+import NavButton from '@/components/ui/NavButton.vue';
 import BaseAvatar from '@/components/ui/BaseAvatar.vue';
 
 export default {
   name: 'TheNavbar',
   components: {
-    NavbarButton, BaseAvatar,
+    NavButton, BaseAvatar,
   },
   computed: {
     classContainer() {
