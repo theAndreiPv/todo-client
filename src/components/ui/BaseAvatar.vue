@@ -1,5 +1,5 @@
 <template lang="pug">
-img(src='@/assets/avatar.png' class='rounded-full w-7 h-7')
+img(:src='src' class='rounded-full w-7 h-7')
 </template>
 
 <script>

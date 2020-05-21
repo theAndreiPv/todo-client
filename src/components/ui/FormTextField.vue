@@ -1,5 +1,5 @@
 <template lang="pug">
-div
+label
   div(class='flex items-center')
     BaseSvg(v-if='icon' :name='icon' class='flex-shrink-0 w-6 h-6' :class='onFocus ? "text-theme" : "text-black-20"')
     input(

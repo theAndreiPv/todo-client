@@ -1,6 +1,6 @@
 <template lang="pug">
-  VueScroll(:ops='options')
-    slot
+VueScroll(:ops='options')
+  slot
 </template>
 
 <script>

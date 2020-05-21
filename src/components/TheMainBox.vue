@@ -8,7 +8,6 @@ main(class='flex flex-col flex-grow')
     BaseTextField(
       v-model='taskNameInput'
       placeholder='Добавьте задачу, нажмите Enter для сохранения.'
-      spellcheck='false'
       @keyup.native.enter='addTask')
   ContainerScroll(v-if='$store.getters.getTasksLength' class='flex-grow')
     div(class='px-4')

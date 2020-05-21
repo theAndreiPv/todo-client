@@ -5,6 +5,7 @@ textarea(
   class='w-full'
   :class='classTheme'
   :value='value'
+  :placeholder='placeholder'
   @input='$emit("input", $event.target.value)')
 </template>
 
@@ -14,6 +15,10 @@ export default {
   props: {
     value: {
       type: [String, Number],
+      default: null,
+    },
+    placeholder: {
+      type: String,
       default: null,
     },
     theme: {
