@@ -4,7 +4,7 @@ nav(
   :class='classContainer'
   v-click-outside='hideOnMobile')
   header(class='flex items-center px-5 py-5')
-    BaseAvatar(src='@/assets/avatar.png')
+    BaseAvatar(:src='userAvatar')
     span(class='flex-grow ml-2 truncate') {{userName}}
     button(@click='logout')
       BaseSvg(name='logout' class='w-5 h-5 text-white-40 hover:text-white-50')
@@ -15,6 +15,8 @@ nav(
 <script>
 import NavButton from '@/components/ui/NavButton.vue';
 import BaseAvatar from '@/components/ui/BaseAvatar.vue';
+
+const avatarDefault = require('@/assets/avatar.png');
 
 export default {
   name: 'TheNavbar',
@@ -27,6 +29,9 @@ export default {
     },
     userName() {
       return this.$store.getters.userName;
+    },
+    userAvatar() {
+      return avatarDefault;
     },
   },
   methods: {

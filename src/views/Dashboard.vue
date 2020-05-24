@@ -2,20 +2,20 @@
 TheLoader(v-if='loading')
 div(v-else class='flex h-full')
   TheNavbar
-  TheMainBox
+  TheMainbar
   TheSidebar
 </template>
 
 <script>
 import TheLoader from '@/components/TheLoader.vue';
 import TheNavbar from '@/components/TheNavbar.vue';
-import TheMainBox from '@/components/TheMainBox.vue';
+import TheMainbar from '@/components/TheMainbar.vue';
 import TheSidebar from '@/components/TheSidebar.vue';
 
 export default {
   name: 'Dashboard',
   components: {
-    TheNavbar, TheMainBox, TheSidebar, TheLoader,
+    TheNavbar, TheMainbar, TheSidebar, TheLoader,
   },
   data: () => ({
     loading: true,

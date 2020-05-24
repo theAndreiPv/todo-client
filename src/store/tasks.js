@@ -28,7 +28,7 @@ export default {
       const tasks = await firebase.getTasks();
       commit('setTasks', tasks);
     },
-    async taskUpdate(ctx, { id, newData }) {
+    async taskSaveUpdate(ctx, { id, newData }) {
       await firebase.taskUpdate(id, newData);
     },
     async addTask({ commit }, data) {

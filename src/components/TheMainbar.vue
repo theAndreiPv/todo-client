@@ -14,10 +14,12 @@ main(class='flex flex-col flex-grow')
       BaseTask(
         v-for='task in tasks'
         :key='task.id'
-        :title.sync='task.name'
-        :completed.sync='task.completed'
-        :active='$route.query.task === task.id'
         :to='{ query: { task: task.id } }'
+        :active='$route.query.task === task.id'
+        :completed.sync='task.completed'
+        :title.sync='task.name'
+        @update:completed='updateTaskCompleted(task.id, $event)'
+        @update:title='updateTaskTitle(task.id, $event)'
         @click.native.stop='$store.commit("showMobileSidebar")')
   div(v-else class='flex items-center justify-center flex-grow px-4')
     div(class='flex flex-col items-center -mt-16')
@@ -32,9 +34,10 @@ main(class='flex flex-col flex-grow')
 import BaseTextField from '@/components/ui/BaseTextField.vue';
 import BaseTask from '@/components/ui/BaseTask.vue';
 import messages from '@/utils/messages';
+import { debounce } from 'debounce';
 
 export default {
-  name: 'TheMainBox',
+  name: 'TheMainbar',
   components: {
     BaseTask, BaseTextField,
   },
@@ -57,6 +60,19 @@ export default {
         this.$toasted.show(messages.enterTaskName);
       }
     },
+    async updateTaskCompleted(id, completed) {
+      await this.$store.dispatch('taskSaveUpdate', {
+        id, newData: { completed },
+      });
+    },
+    async updateTaskTitle(id, name) {
+      await this.$store.dispatch('taskSaveUpdate', {
+        id, newData: { name },
+      });
+    },
+  },
+  created() {
+    this.updateTitle = debounce(this.updateTaskTitle, 200);
   },
 };
 </script>

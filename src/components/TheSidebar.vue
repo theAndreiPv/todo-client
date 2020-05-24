@@ -8,7 +8,7 @@ aside(
       header(class='flex items-center flex-shrink-0 px-6 border-b h-18')
         button(class='hidden p-2 mr-3 -ml-2 sm:block' @click='$store.commit("hideMobileSidebar")')
           BaseSvg(name='arrow' class='w-5 h-5 text-black-30')
-        TaskCheckbox(v-model='taskInfo.completed')
+        TaskCheckbox(v-model='taskInfo.completed' @change='updateCompleted')
       ContainerScroll(class='flex-grow')
         div(class='px-6 py-4')
           AutosizeTextarea(v-model='taskInfo.name' @input='updateName' theme='heading' class='mb-4')
@@ -47,8 +47,16 @@ export default {
     hideOnMobile() {
       this.$store.commit('hideMobileSidebar');
     },
+    async updateCompleted() {
+      await this.$store.dispatch('taskSaveUpdate', {
+        id: this.taskId,
+        newData: {
+          completed: this.taskInfo.completed,
+        },
+      });
+    },
     async updateName() {
-      await this.$store.dispatch('taskUpdate', {
+      await this.$store.dispatch('taskSaveUpdate', {
         id: this.taskId,
         newData: {
           name: this.taskInfo.name,
@@ -56,7 +64,7 @@ export default {
       });
     },
     async updateDescription() {
-      await this.$store.dispatch('taskUpdate', {
+      await this.$store.dispatch('taskSaveUpdate', {
         id: this.taskId,
         newData: {
           description: this.taskInfo.description,
