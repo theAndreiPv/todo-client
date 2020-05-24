@@ -4,6 +4,7 @@ module.exports = {
     screens: {
       lg: { max: '1020px' },
       sm: { max: '920px' },
+      xs: { max: '460px' },
     },
     colors: {
       transparent: 'transparent',

@@ -1,6 +1,6 @@
 <template lang="pug">
 aside(
-  class='right-0 flex flex-col w-4/12 bg-white border-l sm:h-full sm:absolute sm:shadow-lg sm:w-2/3'
+  class='right-0 flex flex-col w-4/12 bg-white border-l sm:h-full sm:absolute sm:shadow-lg sm:w-2/3 xs:w-full'
   :class='classContainer'
   v-click-outside='hideOnMobile')
   template(v-if='$store.getters.getTasksLength')
