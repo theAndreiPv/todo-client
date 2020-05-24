@@ -1,5 +1,5 @@
 <template lang='pug'>
-div NotFound
+div Not Found
 </template>
 
 <script>
