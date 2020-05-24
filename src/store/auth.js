@@ -8,10 +8,8 @@ export default {
     async login(ctx, data) {
       await firebase.login(data);
     },
-    async logout({ commit }) {
+    async logout() {
       await firebase.logout();
-      commit('clearInfo');
-      commit('clearTasks');
     },
   },
 };
