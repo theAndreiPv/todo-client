@@ -2,25 +2,16 @@
 main(class='flex flex-col flex-grow')
   header(class='mb-5 px-7')
     div(class='flex items-center h-18')
-      button(class='hidden p-4 -ml-4 lg:block' @click.stop='$store.commit("toggleDisplayMobileNavbar")')
+      button(class='hidden p-4 -ml-4 lg:block' @click.stop='toggleDisplayMobileNavbar')
         VSvg(name='bars' class='w-4 h-4 text-black-30')
       h1(class='text-9') Все
     VTextfieldB(
       v-model='taskNameInput'
       placeholder='Добавьте задачу, нажмите Enter для сохранения.'
       @keyup.native.enter='addTask')
-  VScrollContainer(v-if='$store.getters.getTasksLength' class='flex-grow')
+  VScrollContainer(v-if='countTasksAll' class='flex-grow')
     div(class='px-4')
-      VTask(
-        v-for='task in tasks'
-        :key='task.id'
-        :to='{ query: { task: task.id } }'
-        :active='$route.query.task === task.id'
-        :completed.sync='task.completed'
-        :title.sync='task.name'
-        @update:completed='updateTaskCompleted(task.id, $event)'
-        @update:title='updateTaskTitle(task.id, $event)'
-        @click.native.stop='$store.commit("showMobileSidebar")')
+      TheTaskList
   div(v-else class='flex items-center justify-center flex-grow px-4')
     div(class='flex flex-col items-center -mt-16')
       div(class='flex w-32 h-32 rounded-full bg-black-5')
@@ -32,24 +23,26 @@ main(class='flex flex-col flex-grow')
 
 <script>
 import VTextfieldB from '@/components/VTextfieldB.vue';
-import VTask from '@/components/VTask.vue';
+import TheTaskList from '@/layout/TheTaskList.vue';
 import messages from '@/utils/messages';
-import { debounce } from 'debounce';
 
 export default {
   name: 'TheMainbar',
   components: {
-    VTask, VTextfieldB,
+    TheTaskList, VTextfieldB,
   },
   data: () => ({
     taskNameInput: '',
   }),
   computed: {
-    tasks() {
-      return this.$store.getters.getTasks;
+    countTasksAll() {
+      return this.$store.getters.getTasksLength;
     },
   },
   methods: {
+    toggleDisplayMobileNavbar() {
+      this.$store.commit('toggleDisplayMobileNavbar');
+    },
     async addTask() {
       if (this.taskNameInput) {
         await this.$store.dispatch('addTask', {
@@ -60,19 +53,6 @@ export default {
         this.$toasted.show(messages.enterTaskName);
       }
     },
-    async updateTaskCompleted(id, completed) {
-      await this.$store.dispatch('taskSaveUpdate', {
-        id, newData: { completed },
-      });
-    },
-    async updateTaskTitle(id, name) {
-      await this.$store.dispatch('taskSaveUpdate', {
-        id, newData: { name },
-      });
-    },
-  },
-  created() {
-    this.updateTitle = debounce(this.updateTaskTitle, 200);
   },
 };
 </script>

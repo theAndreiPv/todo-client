@@ -9,7 +9,7 @@ nav(
     button(@click='logout')
       VSvg(name='logout' class='w-5 h-5 text-white-40 hover:text-white-50')
   div(class='px-3')
-    VNavItem(to='/dashboard' icon='all' :count='$store.getters.getTasksLengthActive' active) Все
+    VNavItem(to='/dashboard' icon='all' :count='countTasksActive' active) Все
 </template>
 
 <script>
@@ -33,10 +33,13 @@ export default {
     userAvatar() {
       return avatarDefault;
     },
+    countTasksActive() {
+      return this.$store.getters.getTasksLengthActive;
+    },
   },
   methods: {
     hideOnMobile() {
-      this.$store.commit('hideMobileNavbar');
+      if (this.$store.getters.displayNavbar) this.$store.commit('hideMobileNavbar');
     },
     async logout() {
       await this.$store.dispatch('logout');

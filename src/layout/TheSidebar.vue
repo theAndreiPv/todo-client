@@ -3,10 +3,10 @@ aside(
   class='right-0 flex flex-col w-4/12 bg-white border-l sm:h-full sm:absolute sm:shadow-lg sm:w-2/3 xs:w-full'
   :class='classContainer'
   v-click-outside='hideOnMobile')
-  template(v-if='$store.getters.getTasksLength')
+  template(v-if='countTasksAll')
     template(v-if='taskInfo')
       header(class='flex items-center flex-shrink-0 px-6 border-b h-18')
-        button(class='hidden p-2 mr-3 -ml-2 sm:block' @click='$store.commit("hideMobileSidebar")')
+        button(class='hidden p-2 mr-3 -ml-2 sm:block' @click='hideOnMobile')
           VSvg(name='arrow' class='w-5 h-5 text-black-30')
         VCheckboxTask(v-model='taskInfo.completed' @change='updateCompleted')
       VScrollContainer(class='flex-grow')
@@ -14,7 +14,7 @@ aside(
           VTextarea(v-model='taskInfo.name' @input='updateName' theme='heading' class='mb-4')
           VTextarea(v-model='taskInfo.description' @input='updateDescription' placeholder='Описание')
       footer(class='flex items-center flex-shrink-0 h-12 px-6 border-t')
-        button(@click='$store.dispatch("removeTask", taskId)')
+        button(@click='removeTask')
           VSvg(name='delete' class='w-6 h-6 text-black-30 hover:text-black-50')
     div(v-else class='flex flex-col items-center justify-center flex-grow px-6')
       div(class='flex w-32 h-32 rounded-full bg-black-5')
@@ -42,10 +42,13 @@ export default {
     taskId() {
       return this.$route.query.task;
     },
+    countTasksAll() {
+      return this.$store.getters.getTasksLength;
+    },
   },
   methods: {
     hideOnMobile() {
-      this.$store.commit('hideMobileSidebar');
+      if (this.$store.getters.displaySidebar) this.$store.commit('hideMobileSidebar');
     },
     async updateCompleted() {
       await this.$store.dispatch('taskSaveUpdate', {
@@ -70,6 +73,9 @@ export default {
           description: this.taskInfo.description,
         },
       });
+    },
+    async removeTask() {
+      await this.$store.dispatch('removeTask', this.taskId);
     },
   },
   created() {

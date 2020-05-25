@@ -2,7 +2,7 @@
 textarea(
   v-autosize
   rows='1'
-  class='w-full'
+  class='w-full resize-none'
   :class='classTheme'
   :value='value'
   :placeholder='placeholder'
