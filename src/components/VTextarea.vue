@@ -11,7 +11,7 @@ textarea(
 
 <script>
 export default {
-  name: 'AutosizeTextarea',
+  name: 'VTextarea',
   props: {
     value: {
       type: [String, Number],

@@ -1,6 +1,6 @@
 <template lang="pug">
 router-link(:to='to' draggable='false' class='flex h-10 px-3 rounded' :class='classContainer')
-  TaskCheckbox(
+  VCheckboxTask(
     class='mr-3'
     fade
     :checked='completed'
@@ -14,12 +14,12 @@ router-link(:to='to' draggable='false' class='flex h-10 px-3 rounded' :class='cl
 </template>
 
 <script>
-import TaskCheckbox from '@/components/ui/TaskCheckbox.vue';
+import VCheckboxTask from '@/components/VCheckboxTask.vue';
 
 export default {
-  name: 'BaseTask',
+  name: 'VTask',
   components: {
-    TaskCheckbox,
+    VCheckboxTask,
   },
   props: {
     active: {

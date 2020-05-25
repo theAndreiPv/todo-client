@@ -1,34 +1,34 @@
 <template lang='pug'>
 div(class='flex flex-col items-center justify-center min-h-full px-3 py-12 bg-dim')
-  BaseSvg(name='logo' class='w-16 h-16 mb-9 text-theme-accent')
+  VSvg(name='logo' class='w-16 h-16 mb-9 text-theme-accent')
   form(class='w-full px-12 py-10 bg-white border rounded max-w-100' @submit.prevent='formSubmit')
-    FormTextField(
+    VTextfieldA(
       class='mb-2'
       icon='user'
       placeholder='Имя (не обязательно)'
       v-model.trim='$v.name.$model'
       :textError='textErrorName')
-    FormTextField(
+    VTextfieldA(
       class='mb-2'
       icon='email'
       placeholder='Email'
       v-model.trim='$v.email.$model'
       :textError='textErrorEmail')
-    FormTextField(
+    VTextfieldA(
       class='mb-2'
       icon='lock'
       placeholder='Пароль'
       type='password'
       v-model.trim='$v.password.$model'
       :textError='textErrorPassword')
-    BaseButton(type='submit') Зарегистрироваться
+    VButton(type='submit') Зарегистрироваться
     div(class='mt-3 text-center') Уже есть аккаунт? &#32;
       router-link.TextLink(to='/login') Войти
 </template>
 
 <script>
-import FormTextField from '@/components/ui/FormTextField.vue';
-import BaseButton from '@/components/ui/BaseButton.vue';
+import VTextfieldA from '@/components/VTextfieldA.vue';
+import VButton from '@/components/VButton.vue';
 import messages from '@/utils/messages';
 import {
   email, required, minLength, maxLength,
@@ -37,7 +37,7 @@ import {
 export default {
   name: 'Registration',
   components: {
-    FormTextField, BaseButton,
+    VTextfieldA, VButton,
   },
   data: () => ({
     name: '',

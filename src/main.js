@@ -8,8 +8,8 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 import './assets/tailwind.css';
-import BaseSvg from './components/ui/BaseSvg.vue';
-import ContainerScroll from './components/ui/ContainerScroll.vue';
+import VSvg from './components/VSvg.vue';
+import VScrollContainer from './components/VScrollContainer.vue';
 import 'firebase/auth';
 import 'firebase/database';
 
@@ -23,8 +23,8 @@ Vue.use(Toasted, {
   duration: 3000,
 });
 
-Vue.component('BaseSvg', BaseSvg);
-Vue.component('ContainerScroll', ContainerScroll);
+Vue.component('VSvg', VSvg);
+Vue.component('VScrollContainer', VScrollContainer);
 
 firebase.initializeApp({
   apiKey: 'AIzaSyD3WV9nSqGGzUpxwNt3HoURpe6vAVkkTxA',

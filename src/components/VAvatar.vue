@@ -4,7 +4,7 @@ img(:src='src' class='rounded-full w-7 h-7')
 
 <script>
 export default {
-  name: 'BaseAvatar',
+  name: 'VAvatar',
   props: {
     src: {
       type: String,

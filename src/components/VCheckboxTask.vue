@@ -1,11 +1,11 @@
 <template lang="pug">
 button(@click.prevent='$emit("change", !checked)')
-  BaseSvg(:name='iconName' class='w-4 h-4' :class='classIcon')
+  VSvg(:name='iconName' class='w-4 h-4' :class='classIcon')
 </template>
 
 <script>
 export default {
-  name: 'TaskCheckbox',
+  name: 'VCheckboxTask',
   model: {
     prop: 'checked',
     event: 'change',

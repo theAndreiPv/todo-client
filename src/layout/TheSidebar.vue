@@ -7,30 +7,30 @@ aside(
     template(v-if='taskInfo')
       header(class='flex items-center flex-shrink-0 px-6 border-b h-18')
         button(class='hidden p-2 mr-3 -ml-2 sm:block' @click='$store.commit("hideMobileSidebar")')
-          BaseSvg(name='arrow' class='w-5 h-5 text-black-30')
-        TaskCheckbox(v-model='taskInfo.completed' @change='updateCompleted')
-      ContainerScroll(class='flex-grow')
+          VSvg(name='arrow' class='w-5 h-5 text-black-30')
+        VCheckboxTask(v-model='taskInfo.completed' @change='updateCompleted')
+      VScrollContainer(class='flex-grow')
         div(class='px-6 py-4')
-          AutosizeTextarea(v-model='taskInfo.name' @input='updateName' theme='heading' class='mb-4')
-          AutosizeTextarea(v-model='taskInfo.description' @input='updateDescription' placeholder='Описание')
+          VTextarea(v-model='taskInfo.name' @input='updateName' theme='heading' class='mb-4')
+          VTextarea(v-model='taskInfo.description' @input='updateDescription' placeholder='Описание')
       footer(class='flex items-center flex-shrink-0 h-12 px-6 border-t')
         button(@click='$store.dispatch("removeTask", taskId)')
-          BaseSvg(name='delete' class='w-6 h-6 text-black-30 hover:text-black-50')
+          VSvg(name='delete' class='w-6 h-6 text-black-30 hover:text-black-50')
     div(v-else class='flex flex-col items-center justify-center flex-grow px-6')
       div(class='flex w-32 h-32 rounded-full bg-black-5')
-        BaseSvg(name='loupe' class='w-20 h-20 m-auto text-black-10')
+        VSvg(name='loupe' class='w-20 h-20 m-auto text-black-10')
       div(class='mt-6 text-center text-7 text-black-20') Нажмите на задачу чтобы посмотреть делали
 </template>
 
 <script>
-import TaskCheckbox from '@/components/ui/TaskCheckbox.vue';
-import AutosizeTextarea from '@/components/ui/AutosizeTextarea.vue';
+import VCheckboxTask from '@/components/VCheckboxTask.vue';
+import VTextarea from '@/components/VTextarea.vue';
 import { debounce } from 'debounce';
 
 export default {
   name: 'TheSidebar',
   components: {
-    TaskCheckbox, AutosizeTextarea,
+    VCheckboxTask, VTextarea,
   },
   computed: {
     classContainer() {

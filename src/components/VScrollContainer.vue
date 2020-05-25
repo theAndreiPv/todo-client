@@ -7,7 +7,7 @@ VueScroll(:ops='options')
 import VueScroll from 'vuescroll/dist/vuescroll-native';
 
 export default {
-  name: 'ContainerScroll',
+  name: 'VScrollContainer',
   components: {
     VueScroll,
   },

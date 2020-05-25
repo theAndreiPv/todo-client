@@ -1,7 +1,7 @@
 <template lang="pug">
 label
   div(class='flex items-center')
-    BaseSvg(v-if='icon' :name='icon' class='flex-shrink-0 w-6 h-6' :class='onFocus ? "text-theme" : "text-black-20"')
+    VSvg(v-if='icon' :name='icon' class='flex-shrink-0 w-6 h-6' :class='onFocus ? "text-theme" : "text-black-20"')
     input(
       :type='type'
       :placeholder='placeholder'
@@ -18,7 +18,7 @@ label
 
 <script>
 export default {
-  name: 'FormTextField',
+  name: 'VTextfieldA',
   props: {
     icon: {
       type: String,

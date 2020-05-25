@@ -9,7 +9,7 @@ input(
 
 <script>
 export default {
-  name: 'BaseTextField',
+  name: 'VTextfieldB',
   props: {
     value: {
       type: [String, Number],

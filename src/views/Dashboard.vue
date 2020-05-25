@@ -7,10 +7,10 @@ div(v-else class='flex h-full')
 </template>
 
 <script>
-import TheLoader from '@/components/TheLoader.vue';
-import TheNavbar from '@/components/TheNavbar.vue';
-import TheMainbar from '@/components/TheMainbar.vue';
-import TheSidebar from '@/components/TheSidebar.vue';
+import TheLoader from '@/layout/TheLoader.vue';
+import TheNavbar from '@/layout/TheNavbar.vue';
+import TheMainbar from '@/layout/TheMainbar.vue';
+import TheSidebar from '@/layout/TheSidebar.vue';
 
 export default {
   name: 'Dashboard',

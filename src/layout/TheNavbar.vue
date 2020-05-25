@@ -4,24 +4,24 @@ nav(
   :class='classContainer'
   v-click-outside='hideOnMobile')
   header(class='flex items-center px-5 py-5')
-    BaseAvatar(:src='userAvatar')
+    VAvatar(:src='userAvatar')
     span(class='flex-grow ml-2 truncate') {{userName}}
     button(@click='logout')
-      BaseSvg(name='logout' class='w-5 h-5 text-white-40 hover:text-white-50')
+      VSvg(name='logout' class='w-5 h-5 text-white-40 hover:text-white-50')
   div(class='px-3')
-    NavButton(to='/dashboard' icon='all' :count='$store.getters.getTasksLengthActive' active) Все
+    VNavItem(to='/dashboard' icon='all' :count='$store.getters.getTasksLengthActive' active) Все
 </template>
 
 <script>
-import NavButton from '@/components/ui/NavButton.vue';
-import BaseAvatar from '@/components/ui/BaseAvatar.vue';
+import VNavItem from '@/components/VNavItem.vue';
+import VAvatar from '@/components/VAvatar.vue';
 
 const avatarDefault = require('@/assets/avatar.png');
 
 export default {
   name: 'TheNavbar',
   components: {
-    NavButton, BaseAvatar,
+    VNavItem, VAvatar,
   },
   computed: {
     classContainer() {

@@ -5,7 +5,7 @@ svg(xmlns='http://www.w3.org/2000/svg' class='fill-current')
 
 <script>
 export default {
-  name: 'BaseSvg',
+  name: 'VSvg',
   props: {
     name: {
       type: String,

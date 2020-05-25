@@ -5,7 +5,7 @@ button(:type='type' class='w-full px-4 text-white duration-300 rounded font-seco
 
 <script>
 export default {
-  name: 'BaseButton',
+  name: 'VButton',
   props: {
     type: {
       type: String,

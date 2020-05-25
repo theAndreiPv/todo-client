@@ -3,15 +3,15 @@ main(class='flex flex-col flex-grow')
   header(class='mb-5 px-7')
     div(class='flex items-center h-18')
       button(class='hidden p-4 -ml-4 lg:block' @click.stop='$store.commit("toggleDisplayMobileNavbar")')
-        BaseSvg(name='bars' class='w-4 h-4 text-black-30')
+        VSvg(name='bars' class='w-4 h-4 text-black-30')
       h1(class='text-9') Все
-    BaseTextField(
+    VTextfieldB(
       v-model='taskNameInput'
       placeholder='Добавьте задачу, нажмите Enter для сохранения.'
       @keyup.native.enter='addTask')
-  ContainerScroll(v-if='$store.getters.getTasksLength' class='flex-grow')
+  VScrollContainer(v-if='$store.getters.getTasksLength' class='flex-grow')
     div(class='px-4')
-      BaseTask(
+      VTask(
         v-for='task in tasks'
         :key='task.id'
         :to='{ query: { task: task.id } }'
@@ -24,22 +24,22 @@ main(class='flex flex-col flex-grow')
   div(v-else class='flex items-center justify-center flex-grow px-4')
     div(class='flex flex-col items-center -mt-16')
       div(class='flex w-32 h-32 rounded-full bg-black-5')
-        BaseSvg(name='clipboard' class='w-20 h-20 m-auto text-black-10')
+        VSvg(name='clipboard' class='w-20 h-20 m-auto text-black-10')
       div(class='mt-6 text-center')
         div(class='text-9 text-theme') Список задач пуст
         div(class='mt-1 text-black-30') Чтобы добавить новую задачу, нажмите на поле ввода
 </template>
 
 <script>
-import BaseTextField from '@/components/ui/BaseTextField.vue';
-import BaseTask from '@/components/ui/BaseTask.vue';
+import VTextfieldB from '@/components/VTextfieldB.vue';
+import VTask from '@/components/VTask.vue';
 import messages from '@/utils/messages';
 import { debounce } from 'debounce';
 
 export default {
   name: 'TheMainbar',
   components: {
-    BaseTask, BaseTextField,
+    VTask, VTextfieldB,
   },
   data: () => ({
     taskNameInput: '',
