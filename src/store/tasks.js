@@ -11,10 +11,6 @@ export default {
     clearTasks(state) {
       state.tasks = [];
     },
-    taskUpdate(state, { id, newData }) {
-      const i = state.tasks.findIndex((el) => el.id === id);
-      state.tasks[i] = Object.assign(state.tasks[i], newData);
-    },
     addTask(state, data) {
       state.tasks.push(data);
     },
@@ -28,9 +24,6 @@ export default {
       const tasks = await firebase.getTasks();
       commit('setTasks', tasks);
     },
-    async taskSaveUpdate(ctx, { id, newData }) {
-      await firebase.taskUpdate(id, newData);
-    },
     async addTask({ commit }, data) {
       const { key } = await firebase.addTask(data);
       commit('addTask', { id: key, ...data });
@@ -41,9 +34,12 @@ export default {
     },
   },
   getters: {
-    getTasks: (state) => state.tasks.sort((el) => (el.completed ? 1 : -1)),
-    getTaskById: (state) => (id) => state.tasks.find((el) => el.id === id),
+    tasksAll: (state) => state.tasks.sort((el) => (el.completed ? 1 : -1)),
     countTasksAll: (state) => state.tasks.length,
     countTasksActive: (state) => state.tasks.filter((el) => !el.completed).length,
+    task: (state) => (id) => state.tasks.find((el) => el.id === id),
+    taskTitle: (state, getters) => (id) => getters.task(id).name,
+    taskDescription: (state, getters) => (id) => getters.task(id).description,
+    taskCompleted: (state, getters) => (id) => getters.task(id).completed,
   },
 };
