@@ -5,16 +5,13 @@ div(class='px-3')
 
 <script>
 import VNavItem from '@/components/VNavItem.vue';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'TheNavbarBody',
   components: {
     VNavItem,
   },
-  computed: {
-    countTasksActive() {
-      return this.$store.getters.getTasksLengthActive;
-    },
-  },
+  computed: mapGetters(['countTasksActive']),
 };
 </script>

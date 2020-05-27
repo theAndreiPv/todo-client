@@ -16,16 +16,13 @@ export default {
   },
   computed: {
     taskInfo() {
-      return this.$store.getters.getTaskById(this.taskId);
-    },
-    taskId() {
-      return this.$route.query.task;
+      return this.$store.getters.getTaskById(this.$route.query.task);
     },
   },
   methods: {
     async updateName() {
       await this.$store.dispatch('taskSaveUpdate', {
-        id: this.taskId,
+        id: this.$route.query.task,
         newData: {
           name: this.taskInfo.name,
         },
@@ -33,7 +30,7 @@ export default {
     },
     async updateDescription() {
       await this.$store.dispatch('taskSaveUpdate', {
-        id: this.taskId,
+        id: this.$route.query.task,
         newData: {
           description: this.taskInfo.description,
         },

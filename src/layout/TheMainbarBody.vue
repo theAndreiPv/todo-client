@@ -19,6 +19,7 @@ div(v-else class='flex items-center justify-center flex-grow px-6 pb-16')
 import VInfoBox from '@/components/VInfoBox.vue';
 import VTask from '@/components/VTask.vue';
 import { debounce } from 'debounce';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'TheMainbarBody',
@@ -26,9 +27,7 @@ export default {
     VInfoBox, VTask,
   },
   computed: {
-    countTasksAll() {
-      return this.$store.getters.getTasksLength;
-    },
+    ...mapGetters(['countTasksAll']),
     tasks() {
       return this.$store.getters.getTasks;
     },

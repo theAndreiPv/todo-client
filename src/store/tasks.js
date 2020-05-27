@@ -43,7 +43,7 @@ export default {
   getters: {
     getTasks: (state) => state.tasks.sort((el) => (el.completed ? 1 : -1)),
     getTaskById: (state) => (id) => state.tasks.find((el) => el.id === id),
-    getTasksLength: (state) => state.tasks.length,
-    getTasksLengthActive: (state) => state.tasks.filter((el) => !el.completed).length,
+    countTasksAll: (state) => state.tasks.length,
+    countTasksActive: (state) => state.tasks.filter((el) => !el.completed).length,
   },
 };

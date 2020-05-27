@@ -16,6 +16,7 @@ import TheSidebarHeader from '@/layout/TheSidebarHeader.vue';
 import TheSidebarBody from '@/layout/TheSidebarBody.vue';
 import TheSidebarFooter from '@/layout/TheSidebarFooter.vue';
 import VInfoBox from '@/components/VInfoBox.vue';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'TheSidebar',
@@ -23,14 +24,12 @@ export default {
     TheSidebarHeader, TheSidebarBody, TheSidebarFooter, VInfoBox,
   },
   computed: {
+    ...mapGetters(['countTasksAll']),
     classContainer() {
       return { 'sm:hidden': !this.$store.getters.displaySidebar };
     },
     taskInfo() {
       return this.$store.getters.getTaskById(this.$route.query.task);
-    },
-    countTasksAll() {
-      return this.$store.getters.getTasksLength;
     },
   },
   methods: {
