@@ -8,14 +8,6 @@ import tasks from './tasks';
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
-  getters: {
-  },
   modules: {
     layout, auth, info, tasks,
   },

@@ -30,6 +30,8 @@ export default {
       if (this.taskNameInput) {
         await this.$store.dispatch('addTask', {
           name: this.taskNameInput,
+          description: '',
+          completed: false,
         });
         this.taskNameInput = '';
       } else {

@@ -4,8 +4,8 @@ VScrollContainer(v-if='countTasksAll' class='flex-grow')
     VTask(
       v-for='task in tasks'
       :key='task.id'
-      :to='task.to'
-      :active='task.active'
+      :to='{ query: { task: task.id } }'
+      :active='$route.query.task === task.id'
       :completed.sync='task.completed'
       :title.sync='task.name'
       @update:completed='updateCompleted(task.id, $event)'
@@ -30,13 +30,7 @@ export default {
       return this.$store.getters.getTasksLength;
     },
     tasks() {
-      return this.$store.getters.getTasks.map((task) => ({
-        id: task.id,
-        name: task.name,
-        completed: task.completed,
-        active: this.$route.query.task === task.id,
-        to: { query: { task: task.id } },
-      }));
+      return this.$store.getters.getTasks;
     },
   },
   methods: {

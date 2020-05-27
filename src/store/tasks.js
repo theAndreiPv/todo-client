@@ -32,14 +32,8 @@ export default {
       await firebase.taskUpdate(id, newData);
     },
     async addTask({ commit }, data) {
-      const task = {
-        completed: data.completed || false,
-        description: data.description || '',
-        name: data.name,
-      };
-      const { key } = await firebase.addTask(task);
-      task.id = key;
-      commit('addTask', task);
+      const { key } = await firebase.addTask(data);
+      commit('addTask', { id: key, ...data });
     },
     async removeTask({ commit }, id) {
       await firebase.removeTask(id);
