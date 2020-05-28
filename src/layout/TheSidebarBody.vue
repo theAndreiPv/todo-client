@@ -22,6 +22,10 @@ export default {
       return this.$store.getters.taskDescription(this.$route.query.task);
     },
   },
+  created() {
+    this.syncTitle = debounce(this.syncTitle, 200);
+    this.syncDescription = debounce(this.syncDescription, 200);
+  },
   methods: {
     updateTitle(val) {
       this.$store.commit('updateTitle', { id: this.$route.query.task, val });
@@ -37,10 +41,6 @@ export default {
     async syncDescription() {
       await this.$store.dispatch('syncDescription', this.$route.query.task);
     },
-  },
-  created() {
-    this.syncTitle = debounce(this.syncTitle, 200);
-    this.syncDescription = debounce(this.syncDescription, 200);
   },
 };
 </script>

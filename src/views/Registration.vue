@@ -39,16 +39,16 @@ export default {
   components: {
     VTextfieldA, VButton, TheLayoutSheet,
   },
-  data: () => ({
-    name: '',
-    email: '',
-    password: '',
-  }),
   validations: {
     name: { maxLength: maxLength(64) },
     email: { email, required, maxLength: maxLength(64) },
     password: { required, minLength: minLength(6), maxLength: maxLength(64) },
   },
+  data: () => ({
+    name: '',
+    email: '',
+    password: '',
+  }),
   computed: {
     textErrorName() {
       if (this.$v.name.$dirty) {

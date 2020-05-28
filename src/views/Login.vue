@@ -16,7 +16,7 @@ TheLayoutSheet
       :textError='textErrorPassword')
     VButton(type='submit') Войти
     div(class='mt-3 text-center') Нет аккаунта? &#32;
-      router-link.TextLink(to='/registration') Регистрация
+      router-link.VTextLink(to='/registration') Регистрация
 </template>
 
 <script>
@@ -33,14 +33,14 @@ export default {
   components: {
     VTextfieldA, VButton, TheLayoutSheet,
   },
-  data: () => ({
-    email: '',
-    password: '',
-  }),
   validations: {
     email: { email, required, maxLength: maxLength(64) },
     password: { required, minLength: minLength(6), maxLength: maxLength(64) },
   },
+  data: () => ({
+    email: '',
+    password: '',
+  }),
   computed: {
     textErrorEmail() {
       if (this.$v.email.$dirty) {
@@ -58,6 +58,11 @@ export default {
       return '';
     },
   },
+  mounted() {
+    if (messages[this.$route.query.message]) {
+      this.$toasted.show(messages[this.$route.query.message]);
+    }
+  },
   methods: {
     async formSubmit() {
       if (!this.$v.$invalid) {
@@ -74,11 +79,6 @@ export default {
         this.$v.$touch();
       }
     },
-  },
-  mounted() {
-    if (messages[this.$route.query.message]) {
-      this.$toasted.show(messages[this.$route.query.message]);
-    }
   },
 };
 </script>

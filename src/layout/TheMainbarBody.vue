@@ -38,6 +38,9 @@ export default {
       }));
     },
   },
+  created() {
+    this.syncTitle = debounce(this.syncTitle, 200);
+  },
   methods: {
     ...mapMutations(['showMobileSidebar']),
     updateTitle(id, val) {
@@ -54,9 +57,6 @@ export default {
     async syncCompleted(id) {
       await this.$store.dispatch('syncCompleted', id);
     },
-  },
-  created() {
-    this.syncTitle = debounce(this.syncTitle, 200);
   },
 };
 </script>
