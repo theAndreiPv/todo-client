@@ -15,8 +15,17 @@ export default {
       state.tasks.push(data);
     },
     removeTask(state, id) {
-      const i = state.tasks.findIndex((el) => el.id === id);
-      state.tasks.splice(i, 1);
+      state.tasks.splice(state.tasks.findIndex((el) => el.id === id), 1);
+    },
+    updateTitle(state, { id, val }) {
+      state.tasks.find((el) => el.id === id).name = val;
+    },
+    updateDescription(state, { id, val }) {
+      state.tasks.find((el) => el.id === id).description = val;
+    },
+    toggleCompleted(state, id) {
+      const task = state.tasks.find((el) => el.id === id);
+      task.completed = !task.completed;
     },
   },
   actions: {
@@ -31,6 +40,15 @@ export default {
     async removeTask({ commit }, id) {
       await firebase.removeTask(id);
       commit('removeTask', id);
+    },
+    async syncTitle({ getters }, id) {
+      await firebase.taskUpdate(id, { name: getters.taskTitle(id) });
+    },
+    async syncDescription({ getters }, id) {
+      await firebase.taskUpdate(id, { description: getters.taskDescription(id) });
+    },
+    async syncCompleted({ getters }, id) {
+      await firebase.taskUpdate(id, { completed: getters.taskCompleted(id) });
     },
   },
   getters: {
