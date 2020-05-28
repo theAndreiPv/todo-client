@@ -18,7 +18,7 @@ export default {
       state.tasks.splice(state.tasks.findIndex((el) => el.id === id), 1);
     },
     updateTitle(state, { id, val }) {
-      state.tasks.find((el) => el.id === id).name = val;
+      state.tasks.find((el) => el.id === id).title = val;
     },
     updateDescription(state, { id, val }) {
       state.tasks.find((el) => el.id === id).description = val;
@@ -42,7 +42,7 @@ export default {
       commit('removeTask', id);
     },
     async syncTitle({ getters }, id) {
-      await firebase.taskUpdate(id, { name: getters.taskTitle(id) });
+      await firebase.taskUpdate(id, { title: getters.taskTitle(id) });
     },
     async syncDescription({ getters }, id) {
       await firebase.taskUpdate(id, { description: getters.taskDescription(id) });
@@ -56,7 +56,7 @@ export default {
     countTasksAll: (state) => state.tasks.length,
     countTasksActive: (state) => state.tasks.filter((el) => !el.completed).length,
     taskInfo: (state) => (id) => state.tasks.find((el) => el.id === id),
-    taskTitle: (state, getters) => (id) => getters.taskInfo(id).name,
+    taskTitle: (state, getters) => (id) => getters.taskInfo(id).title,
     taskDescription: (state, getters) => (id) => getters.taskInfo(id).description,
     taskCompleted: (state, getters) => (id) => getters.taskInfo(id).completed,
   },

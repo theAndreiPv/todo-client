@@ -5,7 +5,7 @@ header(class='mb-5 px-7')
       VSvg(name='bars' class='w-4 h-4 text-black-30')
     h1(class='text-9') Все
   VTextfieldB(
-    v-model='taskNameInput'
+    v-model='taskTitleInput'
     placeholder='Добавьте задачу, нажмите Enter для сохранения.'
     @keyup.enter.native='addTask')
 </template>
@@ -21,20 +21,20 @@ export default {
     VTextfieldB,
   },
   data: () => ({
-    taskNameInput: '',
+    taskTitleInput: '',
   }),
   methods: {
     ...mapMutations(['toggleDisplayMobileNavbar']),
     async addTask() {
-      if (this.taskNameInput) {
+      if (this.taskTitleInput) {
         await this.$store.dispatch('addTask', {
-          name: this.taskNameInput,
+          title: this.taskTitleInput,
           description: '',
           completed: false,
         });
-        this.taskNameInput = '';
+        this.taskTitleInput = '';
       } else {
-        this.$toasted.show(messages.enterTaskName);
+        this.$toasted.show(messages.enterTaskTitle);
       }
     },
   },

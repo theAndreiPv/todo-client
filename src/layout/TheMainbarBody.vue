@@ -31,7 +31,7 @@ export default {
     tasks() {
       return this.$store.getters.tasksAll.map((task) => ({
         id: task.id,
-        title: task.name,
+        title: task.title,
         completed: task.completed,
         to: { query: { task: task.id } },
         active: this.$route.query.task === task.id,

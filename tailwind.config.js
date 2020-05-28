@@ -32,16 +32,11 @@ module.exports = {
         accent: '#476ad8',
       },
     },
-    backgroundColor: (theme) => theme('colors'),
     borderColor: (theme) => ({
       ...theme('colors'),
       default: 'rgba(0,0,0,.06)',
       accent: 'rgba(102,131,222,.54)',
     }),
-    textColor: (theme) => theme('colors'),
-    fill: {
-      current: 'currentColor',
-    },
     spacing: {
       px: '1px',
       '2px': '2px',
@@ -77,23 +72,23 @@ module.exports = {
       ...theme('spacing'),
     }),
     fontSize: {
-      1: '0.625rem', // 10px
-      2: '0.687rem', // 11px
-      3: '0.75rem', // 12px
-      4: '0.812rem', // 13px
-      5: '0.875rem', // 14px
-      6: '1rem', // 16px
-      7: '1.125rem', // 18px
-      8: '1.25rem', // 20px
-      9: '1.375rem', // 22px
-      10: '1.5rem', // 24px
-      11: '1.625rem', // 26px
-      12: '1.75rem', // 28px
-      24: '3.5rem', // 28px
+      1: '0.625rem',
+      2: '0.687rem',
+      3: '0.75rem',
+      4: '0.812rem',
+      5: '0.875rem',
+      6: '1rem',
+      7: '1.125rem',
+      8: '1.25rem',
+      9: '1.375rem',
+      10: '1.5rem',
+      11: '1.625rem',
+      12: '1.75rem',
+      24: '3.5rem',
     },
     lineHeight: {
       normal: '1.5',
-      6: '1.5rem', // 24px
+      6: '1.5rem',
     },
     fontFamily: {
       primary: [
@@ -139,6 +134,6 @@ module.exports = {
     },
   },
   variants: {
-    borderColor: ['responsive', 'hover', 'focus', 'group-hover'],
+    borderColor: ['hover', 'focus', 'group-hover'],
   },
 };
