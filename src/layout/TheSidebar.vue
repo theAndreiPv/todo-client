@@ -2,14 +2,21 @@
 aside(
   class='right-0 flex flex-col w-4/12 bg-white border-l sm:h-full sm:absolute sm:shadow-lg sm:w-2/3 xs:w-full'
   :class='classContainer'
-  v-click-outside='hideOnMobile')
+  v-click-outside='hideOnMobile'
+)
   template(v-if='!countTasksAll')
   template(v-else-if='taskInfo')
     TheSidebarHeader
     TheSidebarBody
     TheSidebarFooter
-  div(v-else class='flex items-center justify-center flex-grow p-6')
-    VInfoBox(icon='loupe' subtitle='Нажмите на задачу чтобы посмотреть детали')
+  div(
+    v-else
+    class='flex items-center justify-center flex-grow p-6'
+  )
+    VInfoBox(
+      icon='loupe'
+      subtitle='Нажмите на задачу чтобы посмотреть детали'
+    )
 </template>
 
 <script>

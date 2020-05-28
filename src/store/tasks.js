@@ -1,5 +1,5 @@
-import firebase from '@/firebase';
 import arraySort from 'array-sort';
+import firebase from '@/firebase';
 
 export default {
   state: {

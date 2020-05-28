@@ -1,7 +1,10 @@
 <template lang="pug">
 footer(class='flex items-center flex-shrink-0 h-12 px-6 border-t')
   button(@click='removeTask')
-    VSvg(name='delete' class='w-6 h-6 text-black-30 hover:text-black-50')
+    VSvg(
+      name='delete'
+      class='w-6 h-6 text-black-30 hover:text-black-50'
+    )
 </template>
 
 <script>

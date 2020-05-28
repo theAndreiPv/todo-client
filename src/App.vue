@@ -1,4 +1,7 @@
 <template lang='pug'>
-div(id='app' class='h-full text-5 text-black-80 font-primary')
+div(
+  id='app'
+  class='h-full text-5 text-black-80 font-primary'
+)
   router-view
 </template>

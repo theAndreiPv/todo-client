@@ -2,11 +2,12 @@
 textarea(
   v-autosize
   rows='1'
-  class='w-full resize-none'
-  :class='classTheme'
   :value='value'
   :placeholder='placeholder'
-  @input='$emit("input", $event.target.value)')
+  class='w-full resize-none'
+  :class='classTheme'
+  @input='$emit("input", $event.target.value)'
+)
 </template>
 
 <script>

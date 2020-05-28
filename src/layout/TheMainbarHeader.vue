@@ -1,13 +1,20 @@
 <template lang="pug">
 header(class='mb-5 px-7')
   div(class='flex items-center h-18')
-    button(class='hidden p-4 -ml-4 lg:block' @click.stop='toggleDisplayMobileNavbar')
-      VSvg(name='bars' class='w-4 h-4 text-black-30')
+    button(
+      class='hidden p-4 -ml-4 lg:block'
+      @click.stop='toggleDisplayMobileNavbar'
+    )
+      VSvg(
+        name='bars'
+        class='w-4 h-4 text-black-30'
+      )
     h1(class='text-9') Все
   VTextfieldB(
     v-model='taskTitleInput'
     placeholder='Добавьте задачу, нажмите Enter для сохранения.'
-    @keyup.enter.native='addTask')
+    @keyup.enter.native='addTask'
+  )
 </template>
 
 <script>

@@ -1,5 +1,8 @@
 <template lang="pug">
-VScrollContainer(v-if='countTasksAll' class='flex-grow')
+VScrollContainer(
+  v-if='countTasksAll'
+  class='flex-grow'
+)
   div(class='px-4')
     VTask(
       v-for='task in tasks'
@@ -10,9 +13,17 @@ VScrollContainer(v-if='countTasksAll' class='flex-grow')
       :active='task.active'
       @update:title='updateTitle(task.id, $event)'
       @update:completed='toggleCompleted(task.id)'
-      @click.native.stop='showMobileSidebar')
-div(v-else class='flex items-center justify-center flex-grow px-6 pb-16')
-  VInfoBox(icon='loupe' title='Список задач пуст' text='Чтобы добавить новую задачу, нажмите на поле ввода')
+      @click.native.stop='showMobileSidebar'
+    )
+div(
+  v-else
+  class='flex items-center justify-center flex-grow px-6 pb-16'
+)
+  VInfoBox(
+    icon='loupe'
+    title='Список задач пуст'
+    text='Чтобы добавить новую задачу, нажмите на поле ввода'
+  )
 </template>
 
 <script>

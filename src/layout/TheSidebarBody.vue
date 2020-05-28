@@ -1,8 +1,17 @@
 <template lang="pug">
 VScrollContainer(class='flex-grow')
   div(class='px-6 py-4')
-    VTextarea(:value='taskTitle' @input='updateTitle($event)' theme='heading' class='mb-4')
-    VTextarea(:value='taskDescription' @input='updateDescription($event)' placeholder='Описание')
+    VTextarea(
+      :value='taskTitle'
+      theme='heading'
+      class='mb-4'
+      @input='updateTitle($event)'
+    )
+    VTextarea(
+      :value='taskDescription'
+      placeholder='Описание'
+      @input='updateDescription($event)'
+    )
 </template>
 
 <script>

@@ -3,7 +3,10 @@ header(class='flex items-center px-5 py-5')
   VAvatar
   span(class='flex-grow ml-2 truncate') {{userName}}
   button(@click='logout')
-    VSvg(name='logout' class='w-5 h-5 text-white-40 hover:text-white-50')
+    VSvg(
+      name='logout'
+      class='w-5 h-5 text-white-40 hover:text-white-50'
+    )
 </template>
 
 <script>

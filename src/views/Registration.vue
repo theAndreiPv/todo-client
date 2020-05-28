@@ -2,24 +2,27 @@
 TheLayoutSheet
   form(@submit.prevent='formSubmit')
     VTextfieldA(
-      class='mb-2'
+      v-model.trim='$v.name.$model'
       icon='user'
       placeholder='Имя (не обязательно)'
-      v-model.trim='$v.name.$model'
-      :textError='textErrorName')
-    VTextfieldA(
+      :textError='textErrorName'
       class='mb-2'
+    )
+    VTextfieldA(
+      v-model.trim='$v.email.$model'
       icon='email'
       placeholder='Email'
-      v-model.trim='$v.email.$model'
-      :textError='textErrorEmail')
-    VTextfieldA(
+      :textError='textErrorEmail'
       class='mb-2'
+    )
+    VTextfieldA(
+      v-model.trim='$v.password.$model'
       icon='lock'
       placeholder='Пароль'
       type='password'
-      v-model.trim='$v.password.$model'
-      :textError='textErrorPassword')
+      :textError='textErrorPassword'
+      class='mb-2'
+    )
     VButton(type='submit') Зарегистрироваться
     div(class='mt-3 text-center') Уже есть аккаунт? &#32;
       router-link.VTextLink(to='/login') Войти
