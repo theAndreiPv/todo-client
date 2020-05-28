@@ -1,4 +1,5 @@
 import firebase from '@/firebase';
+import arraySort from 'array-sort';
 
 export default {
   state: {
@@ -52,7 +53,7 @@ export default {
     },
   },
   getters: {
-    tasksAll: (state) => state.tasks.sort((el) => (el.completed ? 1 : -1)),
+    tasksAll: (state) => arraySort(state.tasks, ['completed', 'id']),
     countTasksAll: (state) => state.tasks.length,
     countTasksActive: (state) => state.tasks.filter((el) => !el.completed).length,
     taskInfo: (state) => (id) => state.tasks.find((el) => el.id === id),
