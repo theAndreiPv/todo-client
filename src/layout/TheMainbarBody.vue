@@ -18,7 +18,7 @@ div(v-else class='flex items-center justify-center flex-grow px-6 pb-16')
 <script>
 import VInfoBox from '@/components/VInfoBox.vue';
 import VTask from '@/components/VTask.vue';
-import { mapGetters } from 'vuex';
+import { mapGetters, mapMutations } from 'vuex';
 import { debounce } from 'debounce';
 
 export default {
@@ -39,9 +39,7 @@ export default {
     },
   },
   methods: {
-    showMobileSidebar() {
-      this.$store.commit('showMobileSidebar');
-    },
+    ...mapMutations(['showMobileSidebar']),
     updateTitle(id, val) {
       this.$store.commit('updateTitle', { id, val });
       this.syncTitle(id);

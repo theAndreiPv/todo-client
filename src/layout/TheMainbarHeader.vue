@@ -13,6 +13,7 @@ header(class='mb-5 px-7')
 <script>
 import VTextfieldB from '@/components/VTextfieldB.vue';
 import messages from '@/utils/messages';
+import { mapMutations } from 'vuex';
 
 export default {
   name: 'TheMainbarHeader',
@@ -23,9 +24,7 @@ export default {
     taskNameInput: '',
   }),
   methods: {
-    toggleDisplayMobileNavbar() {
-      this.$store.commit('toggleDisplayMobileNavbar');
-    },
+    ...mapMutations(['toggleDisplayMobileNavbar']),
     async addTask() {
       if (this.taskNameInput) {
         await this.$store.dispatch('addTask', {
