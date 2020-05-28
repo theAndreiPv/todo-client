@@ -14,16 +14,17 @@ export default {
   name: 'VTextarea',
   props: {
     value: {
-      type: [String, Number],
-      default: null,
+      type: String,
     },
     placeholder: {
       type: String,
-      default: null,
     },
     theme: {
       type: String,
       default: 'default',
+      validator(val) {
+        return ['default', 'heading'].indexOf(val) !== -1;
+      },
     },
   },
   computed: {

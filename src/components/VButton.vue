@@ -9,7 +9,9 @@ export default {
   props: {
     type: {
       type: String,
-      default: '',
+      validator(val) {
+        return ['button', 'reset', 'submit'].indexOf(val) !== -1;
+      },
     },
   },
 };

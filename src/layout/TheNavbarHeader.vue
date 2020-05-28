@@ -1,6 +1,6 @@
 <template lang="pug">
 header(class='flex items-center px-5 py-5')
-  VAvatar(:src='userAvatar')
+  VAvatar
   span(class='flex-grow ml-2 truncate') {{userName}}
   button(@click='logout')
     VSvg(name='logout' class='w-5 h-5 text-white-40 hover:text-white-50')
@@ -8,7 +8,6 @@ header(class='flex items-center px-5 py-5')
 
 <script>
 import VAvatar from '@/components/VAvatar.vue';
-import avatarDefault from '@/assets/avatar.png';
 import { mapGetters } from 'vuex';
 
 export default {
@@ -16,12 +15,7 @@ export default {
   components: {
     VAvatar,
   },
-  computed: {
-    ...mapGetters(['userName']),
-    userAvatar() {
-      return avatarDefault;
-    },
-  },
+  computed: mapGetters(['userName']),
   methods: {
     async logout() {
       await this.$store.dispatch('logout');

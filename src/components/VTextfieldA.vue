@@ -22,23 +22,22 @@ export default {
   props: {
     icon: {
       type: String,
-      default: null,
     },
     type: {
       type: String,
       default: 'text',
+      validator(val) {
+        return ['text', 'password'].indexOf(val) !== -1;
+      },
     },
     placeholder: {
       type: String,
-      default: null,
     },
     textError: {
       type: String,
-      default: null,
     },
     value: {
-      type: [String, Number],
-      default: null,
+      type: String,
     },
   },
   data: () => ({

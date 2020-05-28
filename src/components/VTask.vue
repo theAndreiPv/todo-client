@@ -28,7 +28,6 @@ export default {
     },
     title: {
       type: String,
-      default: '',
     },
     completed: {
       type: Boolean,

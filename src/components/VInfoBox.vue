@@ -17,15 +17,12 @@ export default {
     },
     title: {
       type: String,
-      default: null,
     },
     subtitle: {
       type: String,
-      default: null,
     },
     text: {
       type: String,
-      default: null,
     },
   },
 };

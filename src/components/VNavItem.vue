@@ -19,11 +19,9 @@ export default {
     },
     icon: {
       type: String,
-      default: null,
     },
     count: {
-      type: [String, Number],
-      default: null,
+      type: Number,
     },
   },
   computed: {

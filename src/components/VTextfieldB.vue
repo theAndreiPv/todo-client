@@ -12,16 +12,17 @@ export default {
   name: 'VTextfieldB',
   props: {
     value: {
-      type: [String, Number],
-      default: null,
+      type: String,
     },
     type: {
       type: String,
       default: 'text',
+      validator(val) {
+        return ['text', 'password'].indexOf(val) !== -1;
+      },
     },
     placeholder: {
       type: String,
-      default: null,
     },
   },
 };
