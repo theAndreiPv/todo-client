@@ -3,11 +3,12 @@ aside(
   class='right-0 flex flex-col w-4/12 bg-white border-l sm:h-full sm:absolute sm:shadow-lg sm:w-2/3 xs:w-full'
   :class='classContainer'
   v-click-outside='hideOnMobile')
-  template(v-if='task && countTasksAll')
+  template(v-if='!countTasksAll')
+  template(v-else-if='taskInfo')
     TheSidebarHeader
     TheSidebarBody
     TheSidebarFooter
-  div(v-if='!task && countTasksAll' class='flex items-center justify-center flex-grow p-6')
+  div(v-else class='flex items-center justify-center flex-grow p-6')
     VInfoBox(icon='loupe' subtitle='Нажмите на задачу чтобы посмотреть детали')
 </template>
 
@@ -28,8 +29,8 @@ export default {
     classContainer() {
       return { 'sm:hidden': !this.$store.getters.displaySidebar };
     },
-    task() {
-      return this.$store.getters.task(this.$route.query.task);
+    taskInfo() {
+      return this.$store.getters.taskInfo(this.$route.query.task);
     },
   },
   methods: {

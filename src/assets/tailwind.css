@@ -33,10 +33,10 @@ textarea, input[type='text'], input[type='password'], label {
 
 @tailwind components;
 
-.TextLink {
+.VTextLink {
   @apply text-theme;
 }
-.TextLink:hover {
+.VTextLink:hover {
   @apply underline;
 }
 

@@ -7,7 +7,7 @@ header(class='mb-5 px-7')
   VTextfieldB(
     v-model='taskNameInput'
     placeholder='Добавьте задачу, нажмите Enter для сохранения.'
-    @keyup.native.enter='addTask')
+    @keyup.enter.native='addTask')
 </template>
 
 <script>

@@ -89,6 +89,7 @@ module.exports = {
       10: '1.5rem', // 24px
       11: '1.625rem', // 26px
       12: '1.75rem', // 28px
+      24: '3.5rem', // 28px
     },
     lineHeight: {
       normal: '1.5',

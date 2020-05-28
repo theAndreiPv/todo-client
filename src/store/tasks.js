@@ -55,9 +55,9 @@ export default {
     tasksAll: (state) => state.tasks.sort((el) => (el.completed ? 1 : -1)),
     countTasksAll: (state) => state.tasks.length,
     countTasksActive: (state) => state.tasks.filter((el) => !el.completed).length,
-    task: (state) => (id) => state.tasks.find((el) => el.id === id),
-    taskTitle: (state, getters) => (id) => getters.task(id).name,
-    taskDescription: (state, getters) => (id) => getters.task(id).description,
-    taskCompleted: (state, getters) => (id) => getters.task(id).completed,
+    taskInfo: (state) => (id) => state.tasks.find((el) => el.id === id),
+    taskTitle: (state, getters) => (id) => getters.taskInfo(id).name,
+    taskDescription: (state, getters) => (id) => getters.taskInfo(id).description,
+    taskCompleted: (state, getters) => (id) => getters.taskInfo(id).completed,
   },
 };

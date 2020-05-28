@@ -1,8 +1,16 @@
+/* eslint-disable no-param-reassign */
 const path = require('path');
 const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
 
 module.exports = {
   chainWebpack: (config) => {
+    config
+      .plugin('html')
+      .tap((args) => {
+        args[0].title = 'TodoList';
+        return args;
+      });
+
     config.module
       .rule('svg-sprite')
       .test(/\.(svg)(\?.*)?$/)

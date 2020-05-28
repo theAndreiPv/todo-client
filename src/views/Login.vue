@@ -1,7 +1,6 @@
 <template lang='pug'>
-div(class='flex flex-col items-center justify-center min-h-full px-3 py-12 bg-dim')
-  VSvg(name='logo' class='w-16 h-16 mb-9 text-theme-accent')
-  form(class='w-full px-12 py-10 bg-white border rounded max-w-100' @submit.prevent='formSubmit')
+TheLayoutSheet
+  form(@submit.prevent='formSubmit')
     VTextfieldA(
       class='mb-2'
       icon='email'
@@ -21,6 +20,7 @@ div(class='flex flex-col items-center justify-center min-h-full px-3 py-12 bg-di
 </template>
 
 <script>
+import TheLayoutSheet from '@/layout/TheLayoutSheet.vue';
 import VTextfieldA from '@/components/VTextfieldA.vue';
 import VButton from '@/components/VButton.vue';
 import messages from '@/utils/messages';
@@ -31,7 +31,7 @@ import {
 export default {
   name: 'Login',
   components: {
-    VTextfieldA, VButton,
+    VTextfieldA, VButton, TheLayoutSheet,
   },
   data: () => ({
     email: '',

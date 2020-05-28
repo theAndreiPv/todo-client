@@ -8,9 +8,8 @@ header(class='flex items-center px-5 py-5')
 
 <script>
 import VAvatar from '@/components/VAvatar.vue';
+import avatarDefault from '@/assets/avatar.png';
 import { mapGetters } from 'vuex';
-
-const avatarDefault = require('@/assets/avatar.png');
 
 export default {
   name: 'TheNavbarHeader',
