@@ -22,6 +22,10 @@ const router = new VueRouter({
       component: () => import('../views/Registration.vue'),
     },
     {
+      path: '/',
+      redirect: '/dashboard',
+    },
+    {
       path: '*',
       component: () => import('../views/NotFound.vue'),
     },

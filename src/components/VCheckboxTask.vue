@@ -1,5 +1,5 @@
 <template>
-  <button @click='$emit("change", !checked)'>
+  <button @click.stop.prevent='$emit("change", !checked)'>
     <VSvg
       :name='iconName'
       class='w-4 h-4'
