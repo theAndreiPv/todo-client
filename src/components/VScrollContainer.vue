@@ -1,6 +1,7 @@
-<template lang="pug">
-VueScroll(:ops='options')
-  slot
+<template>
+  <VueScroll :ops='options'>
+    <slot/>
+  </VueScroll>
 </template>
 
 <script>

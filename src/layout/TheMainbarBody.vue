@@ -1,29 +1,32 @@
-<template lang="pug">
-VScrollContainer(
-  v-if='countTasksAll'
-  class='flex-grow'
-)
-  div(class='px-4')
-    VTask(
-      v-for='task in tasks'
-      :key='task.id'
-      :title='task.title'
-      :completed='task.completed'
-      :to='task.to'
-      :active='task.active'
-      @update:title='updateTitle(task.id, $event)'
-      @update:completed='toggleCompleted(task.id)'
-      @click.native.stop='showMobileSidebar'
-    )
-div(
-  v-else
-  class='flex items-center justify-center flex-grow px-6 pb-16'
-)
-  VInfoBox(
-    icon='loupe'
-    title='Список задач пуст'
-    text='Чтобы добавить новую задачу, нажмите на поле ввода'
-  )
+<template>
+  <VScrollContainer
+    v-if='countTasksAll'
+    class='flex-grow'
+  >
+    <div class='px-4'>
+      <VTask
+        v-for='task in tasks'
+        :key='task.id'
+        :title='task.title'
+        :completed='task.completed'
+        :to='task.to'
+        :active='task.active'
+        @update:title='updateTitle(task.id, $event)'
+        @update:completed='toggleCompleted(task.id)'
+        @click.native.stop='showMobileSidebar'
+      />
+    </div>
+  </VScrollContainer>
+  <div
+    v-else
+    class='flex items-center justify-center flex-grow px-6 pb-16'
+  >
+    <VInfoBox
+      icon='loupe'
+      title='Список задач пуст'
+      text='Чтобы добавить новую задачу, нажмите на поле ввода'
+    />
+  </div>
 </template>
 
 <script>

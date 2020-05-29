@@ -1,19 +1,24 @@
-<template lang="pug">
-router-link(
-  :to='to'
-  class='flex items-center px-2 rounded h-9'
-  :class='classContainer'
-)
-  VSvg(
-    v-if='icon'
-    :name='icon'
-    class='w-6 h-6 mr-2 text-white-8'
-  )
-  span(class='flex-grow font-bold'): slot
-  span(
-    v-if='count'
-    class='text-3'
-  ) {{count}}
+<template>
+  <router-link
+    :to='to'
+    class='flex items-center px-2 rounded h-9'
+    :class='classContainer'
+  >
+    <VSvg
+      v-if='icon'
+      :name='icon'
+      class='w-6 h-6 mr-2 text-white-8'
+    />
+    <span class='flex-grow font-bold'>
+      <slot/>
+    </span>
+    <span
+      v-if='count'
+      class='text-3'
+    >
+      {{count}}
+    </span>
+  </router-link>
 </template>
 
 <script>

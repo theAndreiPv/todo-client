@@ -1,13 +1,13 @@
-<template lang="pug">
-textarea(
-  v-autosize
-  rows='1'
-  :value='value'
-  :placeholder='placeholder'
-  class='w-full resize-none'
-  :class='classTheme'
-  @input='$emit("input", $event.target.value)'
-)
+<template>
+  <textarea
+    v-autosize
+    rows='1'
+    :value='value'
+    :placeholder='placeholder'
+    class='w-full resize-none'
+    :class='classTheme'
+    @input='$emit("input", $event.target.value)'
+  />
 </template>
 
 <script>

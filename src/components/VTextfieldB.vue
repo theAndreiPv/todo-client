@@ -1,11 +1,11 @@
-<template lang="pug">
-input(
-  :value='value'
-  :type='type'
-  :placeholder='placeholder'
-  class='w-full h-10 px-3 border border-transparent rounded placeholder-black-30 bg-theme-8 focus:border-accent'
-  @input='$emit("input", $event.target.value)'
-)
+<template>
+  <input
+    :value='value'
+    :type='type'
+    :placeholder='placeholder'
+    class='w-full h-10 px-3 border border-transparent rounded placeholder-black-30 bg-theme-8 focus:border-accent'
+    @input='$emit("input", $event.target.value)'
+  />
 </template>
 
 <script>

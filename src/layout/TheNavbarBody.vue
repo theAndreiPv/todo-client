@@ -1,11 +1,14 @@
-<template lang="pug">
-div(class='px-3')
-  VNavItem(
-    to='/dashboard'
-    icon='all'
-    :count='countTasksActive'
-    active
-  ) Все
+<template>
+  <div class='px-3'>
+    <VNavItem
+      to='/dashboard'
+      icon='all'
+      :count='countTasksActive'
+      active
+    >
+      Все
+    </VNavItem>
+  </div>
 </template>
 
 <script>

@@ -1,24 +1,28 @@
-<template lang='pug'>
-TheLayoutSheet
-  form(@submit.prevent='formSubmit')
-    VTextfieldA(
-      v-model.trim='$v.email.$model'
-      icon='email'
-      placeholder='Email'
-      :textError='textErrorEmail'
-      class='mb-2'
-    )
-    VTextfieldA(
-      v-model.trim='$v.password.$model'
-      icon='lock'
-      placeholder='Пароль'
-      type='password'
-      :textError='textErrorPassword'
-      class='mb-2'
-    )
-    VButton(type='submit') Войти
-    div(class='mt-3 text-center') Нет аккаунта? &#32;
-      router-link.VTextLink(to='/registration') Регистрация
+<template>
+  <TheLayoutSheet>
+    <form @submit.prevent='formSubmit'>
+      <VTextfieldA
+        v-model.trim='$v.email.$model'
+        icon='email'
+        placeholder='Email'
+        :textError='textErrorEmail'
+        class='mb-2'
+      />
+      <VTextfieldA
+        v-model.trim='$v.password.$model'
+        icon='lock'
+        placeholder='Пароль'
+        type='password'
+        :textError='textErrorPassword'
+        class='mb-2'
+      />
+      <VButton type='submit'>Войти</VButton>
+      <div class='mt-3 text-center'>
+        Нет аккаунта?
+        <router-link to='/registration' class='VTextLink'>Регистрация</router-link>
+      </div>
+    </form>
+  </TheLayoutSheet>
 </template>
 
 <script>

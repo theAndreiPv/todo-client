@@ -1,10 +1,11 @@
-<template lang="pug">
-button(@click='$emit("change", !checked)')
-  VSvg(
-    :name='iconName'
-    class='w-4 h-4'
-    :class='classIcon'
-  )
+<template>
+  <button @click='$emit("change", !checked)'>
+    <VSvg
+      :name='iconName'
+      class='w-4 h-4'
+      :class='classIcon'
+    />
+  </button>
 </template>
 
 <script>

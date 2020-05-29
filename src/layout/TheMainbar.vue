@@ -1,7 +1,8 @@
-<template lang="pug">
-main(class='flex flex-col flex-grow')
-  TheMainbarHeader
-  TheMainbarBody
+<template>
+  <main class='flex flex-col flex-grow'>
+    <TheMainbarHeader/>
+    <TheMainbarBody/>
+  </main>
 </template>
 
 <script>

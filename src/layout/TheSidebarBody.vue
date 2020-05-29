@@ -1,17 +1,19 @@
-<template lang="pug">
-VScrollContainer(class='flex-grow')
-  div(class='px-6 py-4')
-    VTextarea(
-      :value='taskTitle'
-      theme='heading'
-      class='mb-4'
-      @input='updateTitle($event)'
-    )
-    VTextarea(
-      :value='taskDescription'
-      placeholder='Описание'
-      @input='updateDescription($event)'
-    )
+<template>
+  <VScrollContainer class='flex-grow'>
+    <div class='px-6 py-4'>
+      <VTextarea
+        :value='taskTitle'
+        theme='heading'
+        class='mb-4'
+        @input='updateTitle($event)'
+      />
+      <VTextarea
+        :value='taskDescription'
+        placeholder='Описание'
+        @input='updateDescription($event)'
+      />
+    </div>
+  </VScrollContainer>
 </template>
 
 <script>

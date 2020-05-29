@@ -1,17 +1,19 @@
-<template lang="pug">
-header(class='flex items-center flex-shrink-0 px-6 border-b h-18')
-  button(
-    class='hidden p-2 mr-3 -ml-2 sm:block'
-    @click='hideOnMobile'
-  )
-    VSvg(
-      name='arrow'
-      class='w-5 h-5 text-black-30'
-    )
-  VCheckboxTask(
-    :checked='taskCompleted'
-    @change='toggleCompleted'
-  )
+<template>
+  <header class='flex items-center flex-shrink-0 px-6 border-b h-18'>
+    <button
+      class='hidden p-2 mr-3 -ml-2 sm:block'
+      @click='hideOnMobile'
+    >
+      <VSvg
+        name='arrow'
+        class='w-5 h-5 text-black-30'
+      />
+    </button>
+    <VCheckboxTask
+      :checked='taskCompleted'
+      @change='toggleCompleted'
+    />
+  </header>
 </template>
 
 <script>

@@ -1,9 +1,10 @@
-<template lang="pug">
-button(
-  :type='type'
-  class='w-full px-4 text-white duration-300 rounded font-secondary bg-theme hover:bg-theme-accent h-9'
-)
-  slot
+<template>
+  <button
+    :type='type'
+    class='w-full px-4 text-white duration-300 rounded font-secondary bg-theme hover:bg-theme-accent h-9'
+  >
+    <slot/>
+  </button>
 </template>
 
 <script>

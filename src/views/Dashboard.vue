@@ -1,12 +1,13 @@
-<template lang='pug'>
-TheLoader(v-if='loading')
-div(
-  v-else
-  class='flex h-full'
-)
-  TheNavbar
-  TheMainbar
-  TheSidebar
+<template>
+  <TheLoader v-if='loading'/>
+  <div
+    v-else
+    class='flex h-full'
+  >
+    <TheNavbar/>
+    <TheMainbar/>
+    <TheSidebar/>
+  </div>
 </template>
 
 <script>
