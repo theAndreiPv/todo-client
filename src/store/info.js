@@ -1,4 +1,4 @@
-import firebase from '@/firebase';
+import api from '@/api';
 
 export default {
   state: {
@@ -14,7 +14,7 @@ export default {
   },
   actions: {
     async fetchInfo({ commit }) {
-      const info = await firebase.getUserInfo();
+      const info = await api.getUserInfo();
       commit('setInfo', info);
     },
   },

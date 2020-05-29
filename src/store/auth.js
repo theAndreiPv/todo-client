@@ -1,15 +1,15 @@
-import firebase from '@/firebase';
+import api from '@/api';
 
 export default {
   actions: {
     async registration(ctx, data) {
-      await firebase.registration(data);
+      await api.registration(data);
     },
     async login(ctx, data) {
-      await firebase.login(data);
+      await api.login(data);
     },
     async logout() {
-      await firebase.logout();
+      await api.logout();
     },
   },
 };

@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import firebase from '@/firebase';
+import api from '@/api';
 
 Vue.use(VueRouter);
 
@@ -29,7 +29,7 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  const currentUser = firebase.currentUser();
+  const currentUser = api.currentUser();
   const requireAuth = to.matched.some((record) => record.meta.auth);
   if (requireAuth && !currentUser) {
     next('/login?message=login');

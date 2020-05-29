@@ -1,3 +1,15 @@
+## Core stack
+- Vue JS
+- Vue CLI
+- Vue Router
+- Vuex
+- Tailwind CSS (Utility-First)
+- Firebase
+- Webpack
+- ESLint (style guide Airbnb)
+- Babel
+- HTML
+
 ## Project setup
 ```
 npm install

@@ -1,5 +1,5 @@
 import arraySort from 'array-sort';
-import firebase from '@/firebase';
+import api from '@/api';
 
 export default {
   state: {
@@ -31,25 +31,25 @@ export default {
   },
   actions: {
     async fetchTasks({ commit }) {
-      const tasks = await firebase.getTasks();
+      const tasks = await api.getTasks();
       commit('setTasks', tasks);
     },
     async addTask({ commit }, data) {
-      const { key } = await firebase.addTask(data);
+      const { key } = await api.addTask(data);
       commit('addTask', { id: key, ...data });
     },
     async removeTask({ commit }, id) {
-      await firebase.removeTask(id);
+      await api.removeTask(id);
       commit('removeTask', id);
     },
     async syncTitle({ getters }, id) {
-      await firebase.taskUpdate(id, { title: getters.taskTitle(id) });
+      await api.taskUpdate(id, { title: getters.taskTitle(id) });
     },
     async syncDescription({ getters }, id) {
-      await firebase.taskUpdate(id, { description: getters.taskDescription(id) });
+      await api.taskUpdate(id, { description: getters.taskDescription(id) });
     },
     async syncCompleted({ getters }, id) {
-      await firebase.taskUpdate(id, { completed: getters.taskCompleted(id) });
+      await api.taskUpdate(id, { completed: getters.taskCompleted(id) });
     },
   },
   getters: {
