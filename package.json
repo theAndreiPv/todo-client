@@ -11,7 +11,7 @@
     "array-sort": "^1.0.0",
     "core-js": "^3.6.4",
     "debounce": "^1.2.0",
-    "firebase": "^7.14.3",
+    "firebase": "^10.9.0",
     "v-autosize": "^1.0.3",
     "v-click-outside": "^3.0.1",
     "vue": "^2.6.11",
